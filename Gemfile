@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use SCSS for stylesheets
@@ -11,6 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+# ISSUE with gem coffee script for windows, doesnt work unless its 1.8.0
+gem 'coffee-script-source', '1.8.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

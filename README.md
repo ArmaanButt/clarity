@@ -50,3 +50,7 @@ MySQL Workbench can be installed using the Windows Installer (.msi) installation
 	Hostname: qa-ms2012r2-ab.sotiqa.com
 	username: root
 	password: Welcome1234
+
+
+###Fixing Bcrypt###
+https://www.alib.jp/entries/bcrypt_ext_load_error_on_ruby21x

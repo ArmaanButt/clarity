@@ -70,7 +70,8 @@ if the folder you extracted to was C:\devkit then add ;C:\devkit\bin;C:\devkit\m
 Press ok and ok
 
 In order to find out where your gems are located run 
->gem which rails
+*gem which rails
+
 The part before "railties" is the folder for your gems.
 
 Then follow the steps in the link. You may have to do it twice if multiple versions of bcrypt are in your gems folder.

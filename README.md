@@ -58,26 +58,27 @@ Follow the steps in this link:
 https://www.alib.jp/entries/bcrypt_ext_load_error_on_ruby21x
 
 
+
 If that doesn't work:
 
-If you haven't downloaded the devkit yet download the 32 bit version for Ruby 2.0 and above from http://rubyinstaller.org/downloads/
+1)If you haven't downloaded the devkit yet download the 32 bit version for Ruby 2.0 and above from http://rubyinstaller.org/downloads/
 
-Extract it to some folder. 
+2)Extract it to some folder. 
 
-Open up control panel
+3)Open up control panel
 
-Type in "advanced" in the search bar and press "View advanced system settings"
+4)Type in "advanced" in the search bar and press "View advanced system settings"
 
-Press environment variables and edit the Path variable
+5)Press environment variables and edit the Path variable
 
-If the folder you extracted to was C:\devkit then add ;C:\devkit\bin;C:\devkit\mingw\bin to the path
+6)If the folder you extracted to was C:\devkit then add ;C:\devkit\bin;C:\devkit\mingw\bin to the path
 
-Press ok and ok
+7)Press ok and ok
 
-In order to find out where your gems are located run 
+8)In order to find out where your gems are located run 
 
 	gem which rails
 
 The part before "railties" is the folder for your gems.
 
-Then follow the steps in the link. You may have to do it twice if multiple versions of bcrypt are in your gems folder.
+9)Then follow the steps in the link. You may have to do it twice if multiple versions of bcrypt are in your gems folder.

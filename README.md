@@ -53,4 +53,24 @@ MySQL Workbench can be installed using the Windows Installer (.msi) installation
 
 
 ###Fixing Bcrypt###
+
+Follow the steps in this link:
 https://www.alib.jp/entries/bcrypt_ext_load_error_on_ruby21x
+
+
+If that doesn't work:
+
+If you haven't downloaded the devkit yet download the 32 bit version for Ruby 2.0 and above from http://rubyinstaller.org/downloads/
+Extract it to some folder. 
+Open up control panel
+Type in "advanced" in the search bar and press "View advanced system settings"
+
+Press environment variables and edit the Path variable
+if the folder you extracted to was C:\devkit then add ;C:\devkit\bin;C:\devkit\mingw\bin to the path
+Press ok and ok
+
+In order to find out where your gems are located run 
+>gem which rails
+The part before "railties" is the folder for your gems.
+
+Then follow the steps in the link. You may have to do it twice if multiple versions of bcrypt are in your gems folder.

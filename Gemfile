@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # ISSUE with gem coffee script for windows, doesnt work unless its 1.8.0
 gem 'coffee-script-source', '1.8.0'
 
+gem 'searchkick'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

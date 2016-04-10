@@ -67,7 +67,12 @@
             </div>
         </div>
         <!-- /.row -->
-
+        <%= form_tag search_courses_path, method: :get, class: "input", role: "search" do %>
+                <p>
+                  <%= text_field_tag :search, params[:search], class: "form-control" %>
+                  <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                </p>
+              <% end %>
     </div>
     <!-- /.container -->
 <style>body{padding-top: 2cm;}</style>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   root 'courses#index'
-  resources :courses
+  resources :courses do
+    collection do
+      get 'search'
+    end
+  end
   get 'courses/index'
 
   get 'courses/show'

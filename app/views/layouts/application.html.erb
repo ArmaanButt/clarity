@@ -23,30 +23,37 @@
 
 
             <!--   <a class="navbar-brand" href="#">Abtestapp</a> -->
-                <%= link_to "Clarity", root_url, class: "navbar-brand" %>
+                <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+
 
                   <%- if current_user %>
+                  <ul class="nav navbar-nav navbar-right">
                   <li>
                     <%= link_to "My courses" , root_url, class: "navbar-brand"  %>
                   </li>
-
-
                   <li>
                     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                  <% else %>
-                  <li>
-                    <%= link_to "Log in", new_user_session_path %>
                   </li>
-                  <li>
-                    <%= link_to "Create Account", new_user_registration_path %>
-                  </li>
-<% end %>
+
                 </ul>
+
+                  <% else %>
+
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%= link_to "Log in", new_user_session_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Create Account", new_user_registration_path %>
+                        <% end %>
+                    </li>
+                  </ul>
+
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -67,12 +74,6 @@
             </div>
         </div>
         <!-- /.row -->
-        <%= form_tag search_courses_path, method: :get, class: "input", role: "search" do %>
-                <p>
-                  <%= text_field_tag :search, params[:search], class: "form-control" %>
-                  <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-                </p>
-              <% end %>
     </div>
     <!-- /.container -->
 <style>body{padding-top: 2cm;}</style>

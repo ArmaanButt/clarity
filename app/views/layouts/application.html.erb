@@ -33,7 +33,7 @@
                   <%- if current_user %>
                   <ul class="nav navbar-nav navbar-right">
                   <li>
-                    <%= link_to "My courses" , root_url, class: "navbar-brand"  %>
+                    <%= link_to "My courses" , user_courses_courses_path, class: "navbar-brand"  %>
                   </li>
                   <li>
                     <%= link_to "Log out", destroy_user_session_path, method: :delete %>

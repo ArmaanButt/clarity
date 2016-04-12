@@ -12,6 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap-theme.min
+ *= require commontator/application
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";

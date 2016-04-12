@@ -4,11 +4,16 @@ Rails.application.routes.draw do
   resources :courses do
     collection do
       get 'search'
+      get 'user_courses'
+
     end
   end
   get 'courses/index'
 
   get 'courses/show'
+
+post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -22,8 +22,15 @@
 		* execute: - gem install rails
 				   - gem update rails
 		
+5) Download elastic search from https://www.elastic.co/downloads/elasticsearch (Press on the ZIP file link) 
+
+Unzip it to any directory and switch to the bin folder.
+
+Run elasticsearch.bat as administrator
+
+If you get an error about JAVA_HOME then download the latest JDK and then follow this guide https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html
 		
-5) now cd into the fc folder and execute: 
+6) now cd into the fc folder and execute: 
 
 		* bundle install
 		* rails server

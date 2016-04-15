@@ -1,0 +1,22 @@
+<h1>Discussion Board</h1>
+
+<% if !params.has_key?(:course) %>
+  <h2>All Courses</h2>
+<% else %>
+  <h2><%= @course.course_code %>: <%= @course.course_name %></h2>
+<% end %>
+
+<% if params.has_key?(:course) %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= link_to('New Post', :controller => :posts, action: "new", :course => params[:course] )%>
+    </div>
+  </div>
+  <div class="">
+    <ul class="list-group">
+    <% @posts.each do |post| %>
+      <li class="list-group-item"><%= link_to(post.title, post) %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

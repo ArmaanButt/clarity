@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @post.title %> --- By User: <%= @user.email%></div>
+  <div class="panel-body">
+    <%= @post.body %>
+  </div>
+</div>
+
+<p>
+  <%= commontator_thread(@post) %>
+</p>

@@ -16,12 +16,10 @@ class PostsController < ApplicationController
     end
   end
 
-
   def new
     @post = Post.new
   end
 
-  # GET /posts/:id?course=:course_id
   def create
     if current_user.id == params[:post][:user_id].to_i
       @course = Course.find(params[:post][:course_id]) or render_404

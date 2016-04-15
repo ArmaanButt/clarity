@@ -10,9 +10,17 @@ Rails.application.routes.draw do
   end
   get 'courses/index'
 
-  get 'courses/show'
+ post '/posts' => 'posts#create', as: 'post_create'
+ resources :posts
 
-post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+
+
+
+  post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+
+# get match 'courses/:course_id/posts/' => 'posts#index'
+# get match 'courses/:course_id/posts/:post_id' => 'posts#show'
+
 
 
   devise_for :users

@@ -10,3 +10,6 @@ Rails.application.config.assets.precompile += %w( courses.scss )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += %w( homepage.coffee )
+Rails.application.config.assets.precompile += %w( homepage.scss )

@@ -59,9 +59,11 @@ ActiveRecord::Schema.define(version: 20160415155412) do
     t.integer  "course_id"
     t.text     "course_name"
     t.text     "course_prof"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "course_code"
+    t.string   "description"
+    t.string   "prerequisites"
   end
 
   create_table "courses_users", id: false, force: :cascade do |t|
@@ -82,6 +84,17 @@ ActiveRecord::Schema.define(version: 20160415155412) do
 
   add_index "posts", ["course_id"], name: "index_posts_on_course_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

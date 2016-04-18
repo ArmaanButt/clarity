@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'user_courses'
-
     end
   end
-  get 'courses/index'
+
+ get '/courses' => 'courses#index', as: :user_root
 
  post '/posts' => 'posts#create', as: 'post_create'
  resources :posts
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   mount Commontator::Engine => '/commontator'
   # The priority is based upon order of creation: first created -> highest priority.

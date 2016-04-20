@@ -2,9 +2,13 @@
 <html>
 <head>
   <title>Clarity.io</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+  <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"%>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js"%>
 </head>
 
 
@@ -21,7 +25,6 @@
                     <span class="icon-bar"></span>
                 </button>
 
-
               <%if current_user%>
                 <%= link_to "Clarity.io", :user_root, class: "navbar-brand" %>
               <%else%>
@@ -35,7 +38,7 @@
                   <%- if current_user %>
                   <ul class="nav navbar-nav navbar-right">
                     <li>
-                      <%= link_to "My courses" , user_courses_courses_path, class: "navbar-brand"  %>
+                      <%= link_to "My courses" , user_courses_courses_path %>
                     </li>
                     <li>
                       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -51,7 +54,6 @@
                     </li>
                   </ul> -->
                   <% end %>
-
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -60,17 +62,21 @@
 
     <!-- Page Content -->
     <div class="container">
-
         <div class="row">
             <div class="col-lg-12 text-center">
-            <% flash.each do |a,b|  %>
-            <div class = "alert alert-success"> <%= b %> </div>
-            <% end %>
-              <%= yield %>
-
-
+              <% flash.each do |a,b|  %>
+                <div class = "alert alert-success"> <%= b %> </div>
+              <% end %>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <%= yield %>
+            </div>
+        </div>
+        
+          
+        
         <!-- /.row -->
     </div>
     <!-- /.container -->

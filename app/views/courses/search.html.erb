@@ -1,14 +1,23 @@
 <%= stylesheet_link_tag "courses.search" %>
-<p>
-  <strong>Results:</strong>
 
+<strong>Results:</strong>
+<ul class="collapsible popout" data-collapsible="accordion">
   <% @course.each do |course| %>
-  <div class="col-lg-12 card">
-  <%= course.course_code%><br/>
-  <%= link_to "more info", course_path(course) %>
-  <%- if current_user %>
- <%= button_to 'enroll', course_enroll_path(course), method: :post %> 
+    <li>
+      <div class="collapsible-header">
+        <%= course.course_code%>: <%= course.course_name%>
+      </div>
+      <div class="collapsible-body">
+        <p><%= course.description%></p>
+         <%= button_to 'More Info', course_path(course),class: "waves-effect waves-light btn", method: :get%> 
+        <%- if current_user %>
+          <%= button_to 'enroll', course_enroll_path(course),class: "waves-effect waves-light btn", method: :post %> 
+        <% end %>
+        </br>
+      </div>
+    </li>    
   <% end %>
-</div>
-  <% end %>
-</p>
+</ul>
+
+
+

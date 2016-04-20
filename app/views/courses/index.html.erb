@@ -1,8 +1,7 @@
-<%= stylesheet_link_tag "courses" %>
-<h1>Search for a course!</h1>
 <%= form_tag search_courses_path, method: :get, class: "input", role: "search" do %>
-        <p>
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        </p>
-      <% end %>
+    <div class='form-group'>
+        <%= text_field_tag :search, params[:search], class: "form-control",id: "course_search", autocomplete: "off", placeholder: "Search for a course" %>
+        <%= submit_tag "Search", name: nil, class: "waves-effect waves-light btn" %>
+    </div>
+    
+<% end %>

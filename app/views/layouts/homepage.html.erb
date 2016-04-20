@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>clarity.io</title>
+    <title>CLARITY.IO</title>
     <%= stylesheet_link_tag    'homepage', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'homepage', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -46,7 +46,11 @@
                         <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
+                      <% if signed_in? %>
+                        <a href="/courses"><%= current_user.email %></a>
+                      <% else %>
                         <%= link_to "Login", new_user_session_path, class: "page-scroll" %>
+                      <% end %>
                     </li>
                 </ul>
             </div>

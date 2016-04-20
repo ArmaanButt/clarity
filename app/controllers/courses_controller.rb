@@ -13,6 +13,7 @@ end
 
   def show
     @course = Course.find(params[:id])
+    commontator_thread_show(@course)
   end
 
   def user_courses

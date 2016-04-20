@@ -274,6 +274,6 @@ Commontator.configure do |config|
   #
   # Default: lambda { |current_user, query|
   #                   current_user.class.where('username LIKE ?', "#{query}%") }
-  config.user_mentions_proc = lambda { |current_user, query|
-    current_user.class.where('username LIKE ?', "#{query}%") }
+  # config.user_mentions_proc = lambda { |current_user, query|
+  #   current_user.class.where('username LIKE ?', "#{query}%") }
 end

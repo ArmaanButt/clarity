@@ -11,7 +11,7 @@
       </div>
       <div class="collapsible-body">
         <p><%= course.description%></p>
-        <%= button_to 'More Info', course_path(course), class: "waves-effect waves-light btn"%> 
+        <%= button_to 'More Info', course_path(course), class: "waves-effect waves-light btn", method: :get%> 
         </br>
       </div>
     </li>    

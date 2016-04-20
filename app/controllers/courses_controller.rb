@@ -18,6 +18,11 @@ end
   def user_courses
     @course = current_user.courses
   end
+  
+  def autocomplete
+    render json: Course.search(params[:search], autocomplete: true, limit: 10).map(&:course_code)
+    
+  end
 
   def enroll
 

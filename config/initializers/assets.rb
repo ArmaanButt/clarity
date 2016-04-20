@@ -12,4 +12,5 @@ Rails.application.config.assets.precompile += %w( courses.scss )
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( homepage.coffee )
+Rails.application.config.assets.precompile += %w( courses.coffee )
 Rails.application.config.assets.precompile += %w( homepage.scss )

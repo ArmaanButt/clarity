@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   root 'homepage#index'
+  
   resources :courses do
     collection do
       get 'search'
       get 'user_courses'
+      get :autocomplete
     end
   end
 
@@ -18,8 +20,7 @@ Rails.application.routes.draw do
 
   post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
 
-# get match 'courses/:course_id/posts/' => 'posts#index'
-# get match 'courses/:course_id/posts/:post_id' => 'posts#show'
+
 
 
 

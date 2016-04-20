@@ -5,9 +5,10 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-  <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" %>
+ <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js"></script>
 </head>
 
 
@@ -68,9 +69,14 @@
               <% end %>
             </div>
         </div>
-        <div class="col-lg-12 text-center">
-          <%= yield %>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <%= yield %>
+            </div>
         </div>
+        
+          
+        
         <!-- /.row -->
     </div>
     <!-- /.container -->

@@ -26,13 +26,18 @@
                 </button>
 
               <%if current_user%>
+<<<<<<< HEAD
                 <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get %>
+=======
+                <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
+>>>>>>> origin/feature/unenroll
               <%else%>
                 <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
               <%end%>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<<<<<<< HEAD
               <%- if current_user %>
                 <ul class="nav navbar-nav navbar-right">
                   <li>
@@ -43,6 +48,29 @@
                   </li>
                 </ul>
               <% end %>
+=======
+
+
+                  <%- if current_user %>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                    </li>
+                    <li>
+                      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                    </li>
+                  </ul>
+                  <% else %>
+                  <!-- <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%= link_to "Log in", new_user_session_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Create Account", new_user_registration_path %>
+                    </li>
+                  </ul> -->
+                  <% end %>
+>>>>>>> origin/feature/unenroll
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -63,10 +91,17 @@
               <%= yield %>
             </div>
         </div>
+<<<<<<< HEAD
         
           
         
 
+=======
+
+
+
+        <!-- /.row -->
+>>>>>>> origin/feature/unenroll
     </div>
     <!-- /.container -->
 <style>body{padding-top: 2cm;}</style>

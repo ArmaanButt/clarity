@@ -33,18 +33,16 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                  <%- if current_user %>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li>
-                      <%= link_to "My courses" , user_courses_courses_path, method: :get %>
-                    </li>
-                    <li>
-                      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                    </li>
-                  </ul>
-                  <% end %>
+              <%- if current_user %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                  </li>
+                  <li>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              <% end %>
             </div>
             <!-- /.navbar-collapse -->
         </div>

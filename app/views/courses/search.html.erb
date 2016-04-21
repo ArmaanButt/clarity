@@ -6,19 +6,21 @@
     <li>
       <div class="collapsible-header">
         <%= course.course_code%>: <%= course.course_name%>
+        <%- if current_user  and current_user.courses.exists?(course.id) %>
+
+        <%= link_to 'unenroll', course_unenroll_path(course),class: "pull-right waves-effect waves-light btn unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
+        <br>
+        <%else%>
+          <%= link_to 'enroll', course_enroll_path(course),class: "pull-right waves-effect waves-light btn enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
+          <br>
+        <% end %>
+
       </div>
       <div class="collapsible-body">
         <p><%= course.description%></p>
          <%= button_to 'More Info', course_path(course),class: "btn", method: :get%>
          <br>
-        <%- if current_user  and current_user.courses.exists?(course.id) %>
 
-        <%= link_to 'unenroll', course_unenroll_path(course),class: "btn unenroll-button",id: "unenroll_"+course.id.to_s, method: :post %>
-        <br>
-        <%else%>
-          <%= link_to 'enroll', course_enroll_path(course),class: "btn enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
-          <br>
-        <% end %>
         </br>
       </div>
     </li>

@@ -33,7 +33,7 @@ end
       @course = Course.find(params[:id])
       if current_user.courses << @course
       respond_to do |format|
-        format.html {redirect_to :back}
+         format.html {redirect_to :back}
         format.js
     end
   end
@@ -45,7 +45,7 @@ def unenroll
   @course=Course.find(params[:id])
   if current_user.courses.delete(@course.id)
     respond_to do |format|
-      format.html {redirect_to :back}
+       format.html {redirect_to :back}
       format.js
     end
   end

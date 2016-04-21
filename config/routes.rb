@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'homepage#index'
-  
+
   resources :courses do
     collection do
       get 'search'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
 
   post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+  post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
 
 
 

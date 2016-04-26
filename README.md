@@ -9,18 +9,22 @@
 2) execute: gem --version if version is not 2.5.0 or higher execute gem update --system
 
 3) install rails using: gem install rails
+If you get some sort of path bindings issue during the install of rails go back to  
 
-		* If you get some sort of path bindings issue during the install of rails go back to  http://rubyinstaller.org/downloads/  and download the latest toolkit 
-		  the tool kit should download to your downloads folder. go to it and unzip 
+	http://rubyinstaller.org/downloads/  
 
-		* then through CMD cd into the download folder and run the following commands :
-																						ruby dk.rb init
-																						ruby dk.rb install
-																						gem install rdiscount --platform=ruby (this could take awhile)
-4) if rails installed fine then skip this step
+and download the latest toolkit. 
+The tool kit should download to your downloads folder. Go to it and unzip.
+Then through CMD cd into the download folder and run the following commands :
 
-		* execute: - gem install rails
-				   - gem update rails
+		ruby dk.rb init
+		ruby dk.rb install
+		gem install rdiscount --platform=ruby (this could take awhile)
+
+4) if rails installed fine then skip this step. Execute:
+
+		gem install rails
+		gem update rails
 		
 5) Download elastic search from https://www.elastic.co/downloads/elasticsearch (Press on the ZIP file link) 
 
@@ -32,8 +36,9 @@ If you get an error about JAVA_HOME then download the latest JDK and then follow
 		
 6) now cd into the fc folder and execute: 
 
-		* bundle install
-		* rails server
+		bundle install
+		rake searchkick:reindex CLASS=Course
+		rails server
 the server should start, go to localhost:3000 and you should see a welcome to rails page.  
 
 ######MySQL Workbench Installation######

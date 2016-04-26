@@ -38,6 +38,7 @@ If you get an error about JAVA_HOME then download the latest JDK and then follow
 
 		bundle install
 		rake searchkick:reindex CLASS=Course
+		rake db:migrate
 		rails server
 the server should start, go to localhost:3000 and you should see a welcome to rails page.  
 

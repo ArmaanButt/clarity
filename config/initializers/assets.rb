@@ -4,6 +4,8 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( courses.search.scss )
 Rails.application.config.assets.precompile += %w( courses.scss )
+Rails.application.config.assets.precompile += %w( surveyor_all.css )
+Rails.application.config.assets.precompile += %w( surveyor_all.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

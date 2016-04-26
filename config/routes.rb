@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'homepage#index'
-
   resources :courses do
     collection do
       get 'search'
@@ -28,6 +27,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
   mount Commontator::Engine => '/commontator'
+  
+  mount Surveyor::Engine => "/surveys", :as => "surveyor"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

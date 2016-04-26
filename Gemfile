@@ -34,6 +34,13 @@ gem 'commontator', '~> 4.11.1'
 #Posts Engine
 gem 'acts_as_votable'
 
+# Use the latest functionality which hasn't been released as a new gem version yet
+gem 'surveyor', git: "https://github.com/NUBIC/surveyor.git",
+  :ref => "d4fe8df2586ba26126bac3c4b3498e67ba813baf"
+
+# Extends the runway for the current version of Surveyor to work with Rails 4.2
+gem 'protected_attributes'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

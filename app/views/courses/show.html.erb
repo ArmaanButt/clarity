@@ -35,6 +35,11 @@
   </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= link_to "Course Discussion Board", :controller => :posts, :action => :index, :course => params[:id] %>
+  </div>
+</div>
 <p>
   <strong>comments:</strong>
   <%= commontator_thread(@course) %>

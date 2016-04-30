@@ -29,6 +29,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms.
 gem 'simple_form'
+#Comments engine
+gem 'commontator', '~> 4.11.1'
+#Posts Engine
+gem 'acts_as_votable'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,5 +60,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'commontator', '~> 4.10.0'

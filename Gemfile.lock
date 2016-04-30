@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
@@ -61,17 +62,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    commontator (4.10.5)
+    commontator (4.11.1)
       jquery-rails
       rails (>= 3.1)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
-    devise (3.5.6)
+    devise (4.0.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 5.1)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     elasticsearch (1.0.17)
       elasticsearch-api (= 1.0.17)
@@ -207,12 +207,13 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  acts_as_votable
   better_errors
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   coffee-script-source (= 1.8.0)
-  commontator (~> 4.10.0)
+  commontator (~> 4.11.1)
   devise
   jbuilder (~> 2.0)
   jquery-rails

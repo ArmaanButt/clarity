@@ -1,0 +1,16 @@
+<% if current_user and params.has_key?(:course) and current_user.courses.exists?(params[:course]) %>
+  <h1>New Post</h1>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :title, label: 'Title', error: 'Title is mandatory, please specify one'%>
+    <%= f.input :body, label: 'Body'  %>
+    <%= f.hidden_field :course_id, value: params[:course] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "Post", :class => "waves-effect waves-light btn"%>
+  <% end %>
+<% elsif current_user and !params.has_key?(:course) %>
+  <p>An error has occured</p>
+<%elsif current_user%>
+    <p>You must be enrolled in a course to make a new post</p>
+<%else%>
+  <p>You must be logged in to make a post</p>
+<% end %>

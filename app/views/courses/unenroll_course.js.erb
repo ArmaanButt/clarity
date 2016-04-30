@@ -1,0 +1,4 @@
+$("#unenroll_<%=@course.id%>").attr('class', 'btn enroll-button')
+                   .text('Enroll')
+                   .attr('href', "/enroll/<%= @course.id %>")
+                   .attr('id', 'enroll_<%=@course.id%>');

@@ -1,21 +1,31 @@
 Rails.application.routes.draw do
 
-  root 'courses#index'
+  root 'homepage#index'
+
   resources :courses do
     collection do
       get 'search'
       get 'user_courses'
-
+      get :autocomplete
     end
   end
-  get 'courses/index'
 
-  get 'courses/show'
+ get '/courses' => 'courses#index', as: :user_root
 
-post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+ post '/posts' => 'posts#create', as: 'post_create'
+ resources :posts
 
 
-  devise_for :users
+
+
+  post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+  post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
+
+
+
+
+
+  devise_for :users, controllers: { registrations: "registrations" }
 
   mount Commontator::Engine => '/commontator'
   # The priority is based upon order of creation: first created -> highest priority.

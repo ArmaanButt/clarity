@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415155412) do
+ActiveRecord::Schema.define(version: 20160502013655) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -199,10 +199,12 @@ ActiveRecord::Schema.define(version: 20160415155412) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "api_id"
+    t.integer  "course_id"
   end
 
   add_index "response_sets", ["access_code"], name: "response_sets_ac_idx", unique: true
   add_index "response_sets", ["api_id"], name: "uq_response_sets_api_id", unique: true
+  add_index "response_sets", ["course_id"], name: "index_response_sets_on_course_id"
 
   create_table "responses", force: :cascade do |t|
     t.integer  "response_set_id"

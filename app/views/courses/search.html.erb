@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "courses.search" %>
 
 <strong>Results:</strong>
-<ul class="collapsible popout" data-collapsible="accordion">
+<!-- <ul class="collapsible popout" data-collapsible="accordion"> -->
   <% @course.each do |course| %>
     <li>
-      <div class="collapsible-header">
+      <!-- <div class="collapsible-header"> -->
         <%= course.course_code%>: <%= course.course_name%>
 
 
@@ -17,14 +17,16 @@
           <br>
         <% end %>
 
-      </div>
-      <div class="collapsible-body">
+      <!-- </div> -->
+      <!-- <div class="collapsible-body"> -->
         <p><%= course.description%></p>
+
          <%= button_to 'More Info', course_path(course),class: "btn", method: :get%>
          <br>
 
+
         </br>
-      </div>
+      <!-- </div> -->
     </li>
   <% end %>
 </ul>

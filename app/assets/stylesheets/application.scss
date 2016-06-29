@@ -12,13 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap.min
- *= require bootstrap-theme.min
  *= require commontator/application
  */
+@import "bootstrap.min";
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
 
  .enroll-button {
    text-transform: uppercase;

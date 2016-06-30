@@ -4,6 +4,6 @@
 
 #= require jquery
 #= require jquery.easing.min
-#= require bootstrap
+#= require bootstrap.min
 #= require typed.min
 #= require grayscale

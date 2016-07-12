@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js", 'data-turbolinks-track' => true%>
+  <%= javascript_include_tag "https://code.jquery.com/ui/1.12.0/jquery-ui.js", 'data-turbolinks-track' => true%>
 </head>
 
 
@@ -22,40 +23,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-              <%if current_user%>
-
-                <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
-
-              <%else%>
-                <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
-              <%end%>
+                <%if current_user%>
+                  <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
+                <%else%>
+                  <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
+                <%end%>
             </div>
+
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-                  <%- if current_user %>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li>
-                      <%= link_to "My courses" , user_courses_courses_path, method: :get %>
-                    </li>
-                    <li>
-                      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                    </li>
-                  </ul>
-                  <% else %>
-                  <!-- <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <%= link_to "Log in", new_user_session_path %>
-                    </li>
-                    <li>
-                        <%= link_to "Create Account", new_user_registration_path %>
-                    </li>
-                  </ul> -->
-                  <% end %>
-
+              <%- if current_user %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <%= form_tag search_courses_path, method: :get, class: "navbar-form", role: "search" do %>
+                        <div class='form-group'>
+                            <%= text_field_tag :search, params[:search], class: "form-control",id: "course_search", autocomplete: "off", placeholder: "Search for a course" %>
+                            <%= submit_tag "Search", name: nil, class: "btn btn-default", method: :get %>
+                        </div>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                  </li>
+                  <li>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              <% end %>
             </div>
             <!-- /.navbar-collapse -->
         </div>

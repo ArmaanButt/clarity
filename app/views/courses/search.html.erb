@@ -2,31 +2,28 @@
 
 <strong>Results:</strong>
 <!-- <ul class="collapsible popout" data-collapsible="accordion"> -->
-  <% @course.each do |course| %>
-    <li>
-      <!-- <div class="collapsible-header"> -->
-        <%= course.course_code%>: <%= course.course_name%>
+<% @course.each do |course| %>
+<li>
+    <!-- <div class="collapsible-header"> -->
+    <%= course.course_code%>:
+    <%= course.course_name%>
 
+    <%- if current_user  and current_user.courses.exists?(course.id) %>
 
-        <%- if current_user  and current_user.courses.exists?(course.id) %>
+    <%= link_to 'unenroll', course_unenroll_path(course),class: "pull-right btn btn-primary unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
+    <br>
+    <%elsif current_user  %>
+    <%= link_to 'enroll', course_enroll_path(course),class: "pull-right btn btn-primary enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
+    <br>
+    <% end %>
 
-        <%= link_to 'unenroll', course_unenroll_path(course),class: "pull-right btn btn-primary unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
-        <br>
-        <%elsif current_user  %>
-          <%= link_to 'enroll', course_enroll_path(course),class: "pull-right btn btn-primary enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
-          <br>
-        <% end %>
+    <!-- </div> -->
+    <!-- <div class="collapsible-body"> -->
+    <p><%= course.description%></p>
 
-      <!-- </div> -->
-      <!-- <div class="collapsible-body"> -->
-        <p><%= course.description%></p>
-
-         <%= button_to 'More Info', course_path(course),class: "btn btn-primary", method: :get%>
-         <br>
-
-
-        </br>
-      <!-- </div> -->
-    </li>
-  <% end %>
+    <%= button_to 'More Info', course_path(course),class: "btn btn-primary", method: :get%>
+    <br></br>
+    <!-- </div> -->
+</li>
+<% end %>
 </ul>

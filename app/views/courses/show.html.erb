@@ -1,41 +1,40 @@
-
 <p>
-  <strong>Title:</strong>
-  <%= @course.course_name %>
+    <strong>Title:</strong>
+    <%= @course.course_name %>
 </p>
 
 <p>
-  <strong>code:</strong>
-  <%= @course.course_code %>
+    <strong>code:</strong>
+    <%= @course.course_code %>
 </p>
 
 <p>
-  <strong>prof:</strong>
-  <%= @course.course_prof %>
+    <strong>prof:</strong>
+    <%= @course.course_prof %>
 </p>
 
 <p>
-  <strong>name:</strong>
-  <%= @course.course_name %>
+    <strong>name:</strong>
+    <%= @course.course_name %>
 </p>
 
 <p>
-  <strong>description:</strong>
-  <%= @course.description %>
+    <strong>description:</strong>
+    <%= @course.description %>
 </p>
 
 <p>
-  <strong>prerequisites:</strong>
-  <%= @course.prerequisites %>
+    <strong>prerequisites:</strong>
+    <%= @course.prerequisites %>
 </p>
 
 <div class="panel panel-default">
-  <div class="panel-body">
-    <%= link_to "Course Discussion Board", :controller => :posts, :action => :index, :course => params[:id] %>
-  </div>
+    <div class="panel-body">
+        <%= link_to "Course Discussion Board", :controller => :posts, :action => :index, :course => params[:id] %>
+    </div>
 </div>
 
 <p>
-  <strong>comments:</strong>
-  <%= commontator_thread(@course) %>
+    <strong>comments:</strong>
+    <%= commontator_thread(@course) %>
 </p>

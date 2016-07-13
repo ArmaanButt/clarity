@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-  $ ->
-    $('#course_search').typeahead
-        name: "course"
-        remote: "/courses/autocomplete?search=%QUERY"
+  # $ ->
+  #   $('#course_search').typeahead
+  #       name: "course"
+  #       remote: "/courses/autocomplete?search=%QUERY"

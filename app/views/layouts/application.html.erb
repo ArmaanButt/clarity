@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Clarity.io</title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js", 'data-turbolinks-track' => true%>
-  <%= javascript_include_tag "https://code.jquery.com/ui/1.12.0/jquery-ui.js", 'data-turbolinks-track' => true%>
-</head>
+    <head>
+        <title>Clarity.io</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js", 'data-turbolinks-track' => true%>
+        <%= javascript_include_tag "https://code.jquery.com/ui/1.12.0/jquery-ui.js", 'data-turbolinks-track' => true%>
+    </head>
 
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <%if current_user%>
+                    <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
+                    <%else%>
+                    <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
+                    <%end%>
+                </div>
 
-<body>
-  <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <%if current_user%>
-                  <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
-                <%else%>
-                  <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
-                <%end%>
-            </div>
-
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <%- if current_user %>
-                <ul class="nav navbar-nav navbar-right">
-                  <li>
-                    <%= form_tag search_courses_path, method: :get, class: "navbar-form", role: "search" do %>
-                        <div class='form-group'>
-                            <%= text_field_tag :search, params[:search], class: "form-control",id: "course_search", autocomplete: "off", placeholder: "Search for a course" %>
-                            <%= submit_tag "Search", name: nil, class: "btn btn-default", method: :get %>
-                        </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <%- if current_user %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <%= form_tag search_courses_path, method: :get, class: "navbar-form", role: "search" do %>
+                            <div class='form-group'>
+                                <%= text_field_tag :search, params[:search], class: "form-control",id: "course_search", autocomplete: "off", placeholder: "Search for a course" %>
+                                <%= submit_tag "Search", name: nil, class: "btn btn-default", method: :get %>
+                            </div>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                        </li>
+                        <li>
+                            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                        </li>
+                    </ul>
                     <% end %>
-                  </li>
-                  <li>
-                    <%= link_to "My courses" , user_courses_courses_path, method: :get %>
-                  </li>
-                  <li>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                  </li>
-                </ul>
-              <% end %>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- /.container -->
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <% flash.each do |a,b|  %>
+                    <div class="alert alert-success">
+                        <%= b %>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <%= yield %>
+                </div>
+            </div>
+
         </div>
         <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-              <% flash.each do |a,b|  %>
-                <div class = "alert alert-success"> <%= b %> </div>
-              <% end %>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-              <%= yield %>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-<style>body{padding-top: 2cm;}</style>
-</body>
+        <style>
+            body {
+                padding-top: 2cm;
+            }
+        </style>
+    </body>
 </html>

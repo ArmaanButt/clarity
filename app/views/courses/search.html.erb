@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover">
+<table id="search-results" class="table table-striped table-hover">
     <thead>
         <tr>
             <th>
@@ -8,7 +8,7 @@
                 Course Name
             </th>
             <th>
-                Enrolment Status
+
             </th>
         </tr>
     </thead>
@@ -21,7 +21,7 @@
             <td>
                 <%= link_to course.course_name, course_path(course), method: :get%>
             </td>
-            <td>
+            <td class="text-center">
                 <%- if current_user  and current_user.courses.exists?(course.id) %>
                 <%= link_to 'unenroll', course_unenroll_path(course),class: "btn btn-primary unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
                 <%elsif current_user  %>

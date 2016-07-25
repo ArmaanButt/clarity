@@ -5,287 +5,277 @@ survey "Kitchen Sink survey", :default_mandatory => false do
 
   section "Mandatory questions" do
 
-    label "Logistics"
+    # A label is a question that accepts no answers
+ label "These questions are examples of the basic supported input types"
 
-    q_1 "When did you take this course?" #, :custom_renderer => "/partials/custom_question"
-    a :date
+ # A basic question with radio buttons
+ question "What is your favorite color?", :pick => :one
+ answer "red"
+ answer "blue"
+ answer "green"
+ answer "yellow"
+ answer :other
 
-    q_2 "Which of the following options best describes the course?", :pick => :one
-    a_1 "It was a required course"
-    a_2 "It was an elective"
-    a_3 "It was a bird course"
-    a_4 :other
+ # A basic question with checkboxes
+ # The "question" and "answer" methods may be abbreviated as "q" and "a".
+ # Append a reference identifier (a short string used for dependencies and validations) using the "_" underscore.
+ # Question reference identifiers must be unique within a survey.
+ # Answer reference identifiers must be unique within a question
+ q_2 "Choose the colors you don't like", :pick => :any
+ a_1 "red"
+ a_2 "blue"
+ a_3 "green"
+ a_4 "yellow"
+ a :omit
 
-    q_3 "Were there participation marks?", :pick => :one
-    a_1 "Yes"
-    a_2 "No"
-    a_3 "Don't know"
+ # A dependent question, with conditions and rule to logically join them
+ # If the conditions, logically joined into the rule, are met, then the question will be shown.
+ q_2a "Please explain why you don't like this color?"
+ a_1 "explanation", :text, :help_text => "Please give an explanation for each color you don't like"
+ dependency :rule => "A or B or C or D"
+ condition_A :q_2, "==", :a_1
+ condition_B :q_2, "==", :a_2
+ condition_C :q_2, "==", :a_3
+ condition_D :q_2, "==", :a_4
 
-    q_4 "How much collaborative work and group projects were there?", :pick => :one
-    a_1 "Far above average"
-    a_2 "More than average"
-    a_3 "Slightly more than average"
-    a_4 "Average"
-    a_5 "Slightly less than average"
-    a_6 "Barely any"
-    a_7 "None"
+ # The count operator checks how many responses exist for the referenced question.
+ # It understands conditions of the form: count== count!= count> count< count>= count<=
+ q_2b "Please explain why you dislike so many colors?"
+ a_1 "explanation", :text
+ dependency :rule => "Z"
+ condition_Z :q_2, "count>2"
 
-    q_5 "Rate the professor", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # When :pick isn't specified, the default is :none (no checkbox or radio button)
+ q_montypython3 "What... is your name? (e.g. It is 'Arthur', King of the Britons)"
+ a_1 :string
 
-    q_6 "Rate the course content", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # Dependency conditions can refer to any value, not just answer_id. An answer_reference still needs to be specified, to know which answer you would like to check
+ q_montypython4 "What... is your quest? (e.g. To seek the Holy Grail)"
+ a_1 :string
+ dependency :rule => "A"
+ condition_A :q_montypython3, "==", {:string_value => "It is 'Arthur', King of the Britons", :answer_reference => "1"}
 
-    q_7 "Rate the overall course expirience", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # http://www.imdb.com/title/tt0071853/quotes
+ q_montypython5 "What... is the air-speed velocity of an unladen swallow? (e.g. What do you mean? An African or European swallow?)"
+ a_1 :string
+ dependency :rule => "A"
+ condition_A :q_montypython4, "==", {:string_value => "To seek the Holy Grail", :answer_reference => "1"}
 
-    q_8 "What was the end result of you taking the course", :pick => :one
-    a_1 "I aced it"
-    a_2 "I passed"
-    a_3 "I failed"
-    a_4 "I dropped"
+ label "Huh? I-- I don't know that! Auuuuuuuugh!"
+ dependency :rule => "A"
+ condition_A :q_montypython5, "==", {:string_value => "What do you mean? An African or European swallow?", :answer_reference => "1"}
 
-    q_9 "How did you do?", :pick => :one
-    a_1 "A"
-    a_2 "B"
-    a_3 "C"
-    a_4 "D"
-    a_5 "F"
+ q_cooling_1 "How do you cool your home?", :pick => :one
+ a_1 "Fans"
+ a_2 "Window AC"
+ a_3 "Central AC"
+ a_4 "Passive"
 
-    q_9 "How easy was this course?", :pick => :one
-    a_1 "Big Bird"
-    a_2 "Very easy"
-    a_3 "Easy"
-    a_4 "Average"
-    a_5 "Difficult"
-    a_6 "Very Difficult"
-    a_7 "Oscar the Grouch"
-  end
+ # When using !=, also use count>0 if you want to make sure the user responds
+ q_cooling_2 "How much does it cost to run your non-passive cooling solutions? (This question hidden until you respond 'How do you cool your home?')"
+ dependency :rule => "A and B"
+ condition_A :q_cooling_1, "!=", :a_4
+ condition_B :q_cooling_1, "count>0"
+ a_1 "$", :float
 
-  section "Bonus questions" do
+ # Using != alone means the dependent question is shown by default
+ label "Please consider passive cooling solutions (This question always shown, unless you respond 'Passive')"
+ dependency :rule => "A"
+ condition_A :q_cooling_1, "!=", :a_4
 
-    label "Course and goals"
+ # Surveys, sections, questions, groups, and answers all take the following reference arguments
+ # :reference_identifier   # used for parsing references, usually derived from the paper version
+ # :data_export_identifier # used for data export
+ # :common_namespace       # maping to a common vocabulary - the namespace
+ # :common_identifier      # maping to a common vocabulary - the identifier within the namespace
+ q "Get me started on an improv sketch", :reference_identifier => "improv_start", :data_export_identifier => "i_s", :common_namespace => "sketch comedy questions", :common_identifier => "get me started"
+ a "who", :string
+ a "what", :string
+ a "where", :string
 
-    q_10 "The course objectives were clear", :pick => :one
-    a_1 "Yes"
-    a_2 "No"
-    a_3 "Don't know"
+ # Various types of responses can be accepted, and validated
+ q "How many pets do you own?"
+ a :integer
+ validation :rule => "A"
+ condition_A ">=", :integer_value => 0
 
-    q_11 "The course increased my interest in the subject", :pick => :one
-    a_1 "Yes"
-    a_2 "No"
-    a_3 "Don't know"
+ # Surveys, sections, questions, groups, and answers also take a custom css class for covenience in custom styling
+ q "What is your address?", :custom_class => 'address'
+ a :text, :custom_class => 'mapper'
+ # validations can use regexp values
+ validation :rule => "A"
+ condition_A "=~", :regexp => "[0-9a-zA-z\. #]"
 
-    q_12 "The course corresponded to my expectations", :pick => :one
-    a_1 "Yes"
-    a_2 "No"
-    a_3 "Don't know"
+ # Questions, groups, and answers take a custom renderer (a partial in the application's views dir)
+ # defaults are "/partials/question_group", "/partials/question", "/partials/answer", so the custom renderers should have a different name
+ q "Pick your favorite date AND time" #, :custom_renderer => "/partials/custom_question"
+ a :datetime
 
-    q_13 "How useful was this course for your career?", :pick => :one
-    a_1 "Very useful"
-    a_2 "Somewhat useful"
-    a_3 "Averagely useful"
-    a_4 "Less useful than average"
-    a_5 "Not useful"
+ q_time_lunch "What time do you usually take a lunch break?"
+ a_1 :time
 
-    label "Course Content"
+ q "When would you like to meet for dinner?"
+ a :date
 
-    q_14 "How easy was the course material  (difficulty of digesting and implementing course materials e.g  in assignments )?", :pick => :one
-    a_1 "Very easy"
-    a_2 "Easy"
-    a_3 "Average"
-    a_4 "Difficult"
-    a_5 "Very Difficult"
+ # Sliders deprecate to select boxes when javascript is off
+ # Valid Ruby code may be used to shorten repetitive tasks
+ q "Adjust the slider to reflect your level of awesomeness", :pick => :one, :display_type => :slider
+ (1..10).to_a.each{|num| a num.to_s}
 
-    q_15 "How heavy was the workload  (quantity of workload and no. of assignments/deliverables)?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ q "How much do you like Ruby?", :pick => :one, :display_type => :slider
+ ["not at all", "a little", "some", "a lot", "a ton"].each{|level| a level}
 
-    label "Course Materials"
+ # The "|" pipe is used to place labels before or after the input elements
+ q "How much money do you want?"
+ a "$|USD", :float
 
-    q_16 "The course textbooks were clear and well written", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ # Questions may be grouped
+ group "How much oil do you use per day?", :display_type => :inline do
+   q "Quantity"
+   a :float
 
-    q_17 "The assignments were appropriate for the level of this class", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+   q "Unit", :pick => :one, :display_type => :dropdown
+   a "Barrels"
+   a "Gallons"
+   a "Quarts"
+ end
 
-    q_18 "How useful was the textbook?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ q "Choose your Illinois county", :pick => :one, :display_type => :dropdown
+ ["Adams","Alexander","Bond", "Boone",
+     "Brown","Bureau","Calhoun","Carroll","Cass",
+     "Champaign", "Christian", "Clark","Clay",
+     "Clinton", "Coles", "Cook", "Crawford","Cumberland","DeKalb",
+     "De Witt","Douglas","DuPage","Edgar", "Edwards",
+     "Effingham","Fayette", "Ford","Franklin","Fulton",
+     "Gallatin","Greene", "Grundy", "Hamilton","Hancock",
+     "Hardin","Henderson","Henry","Iroquois","Jackson",
+     "Jasper", "Jefferson","Jersey","Jo Daviess","Johnson",
+     "Kane","Kankakee","Kendall","Knox", "La Salle",
+     "Lake", "Lawrence", "Lee","Livingston","Logan",
+     "Macon","Macoupin","Madison","Marion","Marshall", "Mason",
+     "Massac","McDonough","McHenry","McLean","Menard",
+     "Mercer","Monroe", "Montgomery","Morgan","Moultrie",
+     "Ogle","Peoria","Perry","Piatt","Pike","Pope",
+     "Pulaski","Putnam","Randolph","Richland","Rock Island",
+     "Saline","Sangamon","Schuyler","Scott","Shelby",
+     "St. Clair","Stark", "Stephenson","Tazewell","Union",
+     "Vermilion","Wabash","Warren","Washington","Wayne",
+     "White","Whiteside","Will","Williamson","Winnebago","Woodford"].each{ |county| a county}
 
-    q_19 "How useful was the lecture?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # When an is_exclusive answer is checked, it unchecks all other options and disables them (using Javascript)
+ q "Choose your favorite meats", :display_type => :inline, :pick => :any
+ a "Chicken"
+ a "Pork"
+ a "Beef"
+ a "Shellfish"
+ a "Fish"
+ a "I don't eat meats!!!", :is_exclusive => true
 
-    q_20 "How useful was the online lecture material?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ q "All out of ideas for questions?", :pick => :one, :display_type => :inline
+ a "yes"
+ a "maybe"
+ a "no"
+ a "I don't know"
 
-    q_21 "How useful were the tutotials and labs?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # Questions may also have input masks with fancy placeholders
+ q "What is your phone number?"
+ a :string, :input_mask => '(999)999-9999', :input_mask_placeholder => '#'
 
-    q_22 "How useful were the assignments and projects?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+end
 
-    q_23 "How useful were the practice problems?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+section "Complicated questions" do
 
-    q_24 "How useful were the past midterms and exams?", :pick => :one
-    a_1 "Far above average"
-    a_2 "Above average"
-    a_3 "Average"
-    a_4 "Below average"
-    a_5 "Far below average"
+ # Grids are useful for repeated questions with the same set of answers, which are specified before the questions
+ grid "Tell us how often do you cover these each day" do
+   a "1"
+   a "2"
+   a "3"
+   q "Head", :pick => :one
+   q "Knees", :pick => :one
+   q "Toes", :pick => :one
+ end
 
-    label "Professor competency"
+ # "grid" is a shortcut for group with :display_type => :grid
+ # The answers will be repeated every 10 rows, but long grids aren't recommended as they are generally tedious
+ grid "Tell us how you feel today" do
+   a "-2"
+   a "-1"
+   a "0"
+   a "1"
+   a "2"
+   q "down|up" , :pick => :one
+   q "sad|happy", :pick => :one
+   q "limp|perky", :pick => :one
+ end
 
-    q_25 "The professor demonstrated knowledge of the subject matter", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ grid "For each of the car types checked, what type of options would you prefer?" do
+   a "Leather seats"
+   a "Shiny rims"
+   a "Subwoofer"
+   a "Sunroof"
+   a "Turbocharger"
+   q "SUV", :pick => :any
+   q "Sedan", :pick => :any
+   q "Coupe", :pick => :any
+   q "Convertible", :pick => :any
+   q "Minivan", :pick => :any
+   q "Crossover", :pick => :any
+   q "Wagon", :pick => :any
+   q "Other", :pick => :any
+ end
 
-    q_26 "The professor was effective in communicating the content of the course", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ q "Please rank the following foods based on how much you like them"
+ a "|pizza", :integer
+ a "|salad", :integer
+ a "|sushi", :integer
+ a "|ice cream", :integer
+ a "|breakfast ceral", :integer
 
-    q_27 "The professor had legible handwriting and could be understood well when speaking", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ # :other, :string allows someone to specify both the "other" and some other information
+ q "Choose your favorite utensils and enter frequency of use (daily, weekly, monthly, etc...)", :pick => :any
+ a "spoon", :string
+ a "fork", :string
+ a "knife", :string
+ a :other, :string
 
-    q_28 "The professor encouraged feedback from the class", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ q "What is your birth date?", :pick => :one
+ a "I was born on", :date
+ a "Refused"
 
-    q_29 "The professor showed genuine concern for the students", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ q "At what time were you born?", :pick => :any
+ a "I was born at", :time
+ a "This time is approximate"
 
-    q_30 "The professor was accomodating", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ q "When would you like to schedule your next appointment?"
+ a :datetime
 
-    q_31 "The professor was enthusiastic about the course", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ q_car "Do you own a car?", :pick => :one
+ a_y "Yes"
+ a_n "No"
 
-    q_32 "The professor organised the course well", :pick => :one
-    a_1 "Definitely agree"
-    a_2 "Somewhat agree"
-    a_3 "Don't agree or disagree"
-    a_4 "Somewhat disagree"
-    a_5 "Definitely disagree"
+ # Repeaters allow multiple responses to a question or set of questions
+ repeater "Tell us about the cars you own" do
+   dependency :rule => "A"
+   condition_A :q_car, "==", :a_y
+   q "Make", :pick => :one, :display_type => :dropdown
+   a "Toyota"
+   a "Ford"
+   a "GMChevy"
+   a "Ferrari"
+   a "Tesla"
+   a "Honda"
+   a "Other weak brand"
+   q "Model"
+   a :string
+   q "Year"
+   a :string
+ end
 
-    label "Miscellaneous"
+ repeater "Tell us the name and age of your siblings" do
+   q "Sibling"
+   a "Name", :string
+   a "Age|years", :integer
+ end
 
-    q_33 "The professor was good looking", :pick => :one
-    a_1 "Sexiest man/woman alive"
-    a_2 "Definitely agree"
-    a_3 "Somewhat agree"
-    a_4 "Don't agree or disagree"
-    a_5 "Somewhat disagree"
-    a_6 "Definitely disagree"
-    a_7 "Like Gary Busey after a fight with Mohammed Ali"
-
-    q_34 "The professor was a snappy dresser", :pick => :one
-    a_1 "Impeccable fashion taste"
-    a_2 "Definitely agree"
-    a_3 "Somewhat agree"
-    a_4 "Don't agree or disagree"
-    a_5 "Somewhat disagree"
-    a_6 "Definitely disagree"
-    a_7 "Thinks oversized jorts are a good idea"
-
-    q_35 "The professor smelled nice", :pick => :one
-    a_1 "Like a boquet of roses"
-    a_2 "Definitely agree"
-    a_3 "Somewhat agree"
-    a_4 "I'm not creepy enough to answer this question"
-    a_5 "Somewhat disagree"
-    a_6 "Definitely disagree"
-    a_7 "Like that milk you forgot to put in the fridge, finely aged a few years"
-
-    q_36 "How good is the professor at making enemies", :pick => :one
-    a_1 "As many enemies as that sweet grandma who bakes everyone free pie"
-    a_2 "Definitely agree"
-    a_3 "Somewhat agree"
-    a_4 "Don't agree or disagree"
-    a_5 "Somewhat disagree"
-    a_6 "Definitely disagree"
-    a_7 "Meek Mill"
-
-    q_37 "How likely are you to sit and have a beer with the professor", :pick => :one
-    a_1 "Chillest prof on the planet"
-    a_2 "Definitely agree"
-    a_3 "Somewhat agree"
-    a_4 "Don't agree or disagree"
-    a_5 "Somewhat disagree"
-    a_6 "Definitely disagree"
-    a_7 "If you paid me I still wouldn't do it"
-
-
-  end
+end
 end

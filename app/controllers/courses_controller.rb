@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
 
 def search
   if params[:search].present?
-    @course = Course.search(params[:search],fields:[:course_code ,:course_prof,:description])
+    @course = Course.search(params[:search],fields:[:course_code ,:course_name,:description])
   else
     @course = Course.all
   end

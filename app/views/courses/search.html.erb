@@ -1,30 +1,34 @@
-<%= stylesheet_link_tag "courses.search" %>
+<table id="search-results" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Course Code
+            </th>
+            <th>
+                Course Name
+            </th>
+            <th>
 
-<strong>Results:</strong>
-<!-- <ul class="collapsible popout" data-collapsible="accordion"> -->
-  <% @course.each do |course| %>
-    <li>
-      <!-- <div class="collapsible-header"> -->
-        <%= course.course_code%>: <%= course.course_name%>
-        <%- if current_user  and current_user.courses.exists?(course.id) %>
-
-        <%= link_to 'unenroll', course_unenroll_path(course),class: "pull-right waves-effect waves-light btn unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
-        <br>
-        <%else%>
-          <%= link_to 'enroll', course_enroll_path(course),class: "pull-right waves-effect waves-light btn enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
-          <br>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @course.each do |course| %>
+        <tr>
+            <td>
+                <%= link_to course.course_code, course_path(course), method: :get%>
+            </td>
+            <td>
+                <%= link_to course.course_name, course_path(course), method: :get%>
+            </td>
+            <td class="text-center">
+                <%- if current_user  and current_user.courses.exists?(course.id) %>
+                <%= link_to 'unenroll', course_unenroll_path(course),class: "btn btn-primary unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
+                <%elsif current_user  %>
+                <%= link_to 'enroll', course_enroll_path(course),class: "btn btn-primary enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
+                <% end %>
+            </td>
+        </tr>
         <% end %>
-
-      <!-- </div> -->
-      <!-- <div class="collapsible-body"> -->
-        <p><%= course.description%></p>
-
-         <%= button_to 'More Info', course_path(course),class: "btn", method: :get%>
-         <br>
-
-
-        </br>
-      <!-- </div> -->
-    </li>
-  <% end %>
-</ul>
+    </tbody>
+</table>

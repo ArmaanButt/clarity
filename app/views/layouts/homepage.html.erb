@@ -47,7 +47,7 @@
                     </li>
                     <li>
                       <% if signed_in? %>
-                        <a href="/courses"><%= current_user.email %></a>
+                        <a href="/courses/user_courses"><%= current_user.email %></a>
                       <% else %>
                         <%= link_to "Login", new_user_session_path, class: "page-scroll" %>
                       <% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
- get '/courses' => 'courses#index', as: :user_root
+ get '/courses/user_courses' => 'courses#user_courses', as: :user_root
 
  post '/posts' => 'posts#create', as: 'post_create'
  resources :posts
@@ -19,9 +19,6 @@ Rails.application.routes.draw do
 
   post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
   post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
-
-
-
 
 
   devise_for :users, controllers: { registrations: "registrations" }

@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms.
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.2'
 #Comments engine
 gem 'commontator', '~> 4.11.1'
 #Posts Engine
@@ -37,7 +37,6 @@ gem 'acts_as_votable'
 # Use the latest functionality which hasn't been released as a new gem version yet
 gem 'surveyor', git: "https://github.com/NUBIC/surveyor.git",
   :ref => "d4fe8df2586ba26126bac3c4b3498e67ba813baf"
-gem 'surveyor_gui'
 # Extends the runway for the current version of Surveyor to work with Rails 4.2
 gem 'protected_attributes'
 

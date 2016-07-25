@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # Question#is_mandatory is now false by default. The default_mandatory option allows you to set
 #   is_mandatory for all questions in a survey.
-survey "Kitchen Sink survey", :default_mandatory => false do
+survey "Course survey", :default_mandatory => false do
 
   section "Mandatory questions" do
 
@@ -64,7 +64,7 @@ survey "Kitchen Sink survey", :default_mandatory => false do
     a_4 "D"
     a_5 "F"
 
-    q_9 "How easy was this course?", :pick => :one
+    q_38 "How easy was this course?", :pick => :one
     a_1 "Big Bird"
     a_2 "Very easy"
     a_3 "Easy"
@@ -285,7 +285,5 @@ survey "Kitchen Sink survey", :default_mandatory => false do
     a_5 "Somewhat disagree"
     a_6 "Definitely disagree"
     a_7 "If you paid me I still wouldn't do it"
-
-
   end
 end

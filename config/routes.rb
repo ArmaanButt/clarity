@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'homepage#index'
   resources :courses do
     collection do

@@ -6,3 +6,9 @@
   #   $('#course_search').typeahead
   #       name: "course"
   #       remote: "/courses/autocomplete?search=%QUERY"
+
+$ ->
+  $("#tbody").jPut
+    jsonData:courses
+    name:"tbody_template"
+  $('#course_table').dataTable()

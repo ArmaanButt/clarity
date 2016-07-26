@@ -18,3 +18,5 @@
 //= require commontator/application
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
+//= require courseinfo
+//= require jput.min

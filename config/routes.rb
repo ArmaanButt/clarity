@@ -15,7 +15,7 @@ Rails.application.routes.draw do
  resources :posts
 
 
-
+ get '/survey' => 'surveys#index'
 
   post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
   post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
 
   mount Surveyor::Engine => "/surveys", :as => "surveyor"
   get '/surveys' => 'surveyor#new'
-  
+
 end

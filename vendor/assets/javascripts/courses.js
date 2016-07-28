@@ -5748,4 +5748,4 @@ var courses = [
 "WGS395H1S: Indigeneity(s), hub spaces and decolonization",
 "STA201H1F: Why Numbers Matter",
 "ECE455H1F: Digital Signal Processing"
-]
+];

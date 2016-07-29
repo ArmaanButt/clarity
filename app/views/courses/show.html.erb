@@ -6,6 +6,7 @@
   </p>
   <p>
     <%= button_to "Course Discussion Board", {:controller => :posts, :action => :index, :course => params[:id]}, {class: 'btn btn-primary'} %>
+    <%= link_to "Take Survey",  {:controller => :surveys, :course => params[:id]}, {class: 'btn btn-primary'}%>
   </p>
 </div>
 
@@ -18,18 +19,6 @@
     <strong>prerequisites:</strong>
     <%= @course.prerequisites %>
 </p>
-
-<!-- <div class="panel panel-default">
-  <div class="panel-body">
-    <%= link_to "Course Discussion Board", :controller => :posts, :action => :index, :course => params[:id] %>
-  </div>
-</div> -->
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    <%= link_to "Take Survey" , :controller => :surveyor, :action => :new, :course => params[:id] %>
-  </div>
-</div>
 
 <p>
     <%= commontator_thread(@course) %>

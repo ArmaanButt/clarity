@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502013655) do
+ActiveRecord::Schema.define(version: 20160801041149) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -226,6 +226,53 @@ ActiveRecord::Schema.define(version: 20160502013655) do
 
   add_index "responses", ["api_id"], name: "uq_responses_api_id", unique: true
   add_index "responses", ["survey_section_id"], name: "index_responses_on_survey_section_id"
+
+  create_table "submissions", force: :cascade do |t|
+    t.string   "question1"
+    t.string   "question2"
+    t.string   "question3"
+    t.string   "question4"
+    t.string   "question5"
+    t.string   "question6"
+    t.string   "question7"
+    t.string   "question8"
+    t.string   "question9"
+    t.string   "question10"
+    t.string   "question11"
+    t.string   "question12"
+    t.string   "question13"
+    t.string   "question14"
+    t.string   "question15"
+    t.string   "question16"
+    t.string   "question17"
+    t.string   "question18"
+    t.string   "question19"
+    t.string   "question20"
+    t.string   "question21"
+    t.string   "question22"
+    t.string   "question23"
+    t.string   "question24"
+    t.string   "question25"
+    t.string   "question26"
+    t.string   "question27"
+    t.string   "question28"
+    t.string   "question29"
+    t.string   "question30"
+    t.string   "question31"
+    t.string   "question32"
+    t.string   "question33"
+    t.string   "question34"
+    t.string   "qeustion35"
+    t.string   "question36"
+    t.string   "question37"
+    t.integer  "user_id_id"
+    t.integer  "course_id_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "submissions", ["course_id_id"], name: "index_submissions_on_course_id_id"
+  add_index "submissions", ["user_id_id"], name: "index_submissions_on_user_id_id"
 
   create_table "survey_sections", force: :cascade do |t|
     t.integer  "survey_id"

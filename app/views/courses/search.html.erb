@@ -19,7 +19,15 @@
                 <%= link_to course.course_code, course_path(course), method: :get%>
             </td>
             <td>
+              <% if course.course_name %>
                 <%= link_to course.course_name, course_path(course), method: :get%>
+
+                <%else%>
+                <%= "No name found" %>
+                <%end%>
+
+
+
             </td>
             <td class="text-center">
                 <%- if current_user  and current_user.courses.exists?(course.id) %>

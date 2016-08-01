@@ -7,6 +7,7 @@ sendDataToServer = (survey) ->
 
   $.ajax({
   type:'POST',
+  beforeSend: test = (xhr)-> return xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf token"]').attr('content'))
   url: "/surveys/save",
   data: survey.data,
   success: alert("saved"),
@@ -14,6 +15,8 @@ sendDataToServer = (survey) ->
 
 
   });
+
+
 
 ready = ->
   survey = new Survey.Survey(surveyJSON, "surveyContainer")

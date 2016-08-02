@@ -5,6 +5,7 @@ sendDataToServer = (survey) ->
   resultAsString = JSON.stringify(survey.data)
   alert(resultAsString)
 
+
   $.ajax({
   type:'POST',
   beforeSend: test = (xhr)-> return xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf token"]').attr('content'))

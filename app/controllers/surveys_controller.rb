@@ -56,7 +56,8 @@ end
                     :question16,:question17,:question18,:question19,:question20,
                     :question21,:question22,:question23,:question24,:question25,
                     :question26,:question27,:question28,:question29,:question30,
-                    :question31)
+                    :question31, :question32, :question33, :question34, :question34,
+                    :question35, :question36, :question37, :user_id => current_user.id, :course_id => @course.id)
     end
 
 

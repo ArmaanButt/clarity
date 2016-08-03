@@ -15,7 +15,7 @@ Rails.application.routes.draw do
  resources :posts
 
 
- get '/survey' => 'surveys#index'
+ get '/survey' => 'surveys#show'
 get '/surveys/saved'
 get '/surveys/nosaved'
  post '/surveys/save' => 'surveys#create'

@@ -38,8 +38,8 @@ class CreateSubmissions < ActiveRecord::Migration
       t.string :qeustion35
       t.string :question36
       t.string :question37
-      t.references :user_id, index: true, foreign_key: true
-      t.references :course_id, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
+      t.references :course, index: true, foreign_key: true
 
       t.timestamps null: false
     end

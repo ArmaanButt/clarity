@@ -265,14 +265,14 @@ ActiveRecord::Schema.define(version: 20160801041149) do
     t.string   "qeustion35"
     t.string   "question36"
     t.string   "question37"
-    t.integer  "user_id_id"
-    t.integer  "course_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "submissions", ["course_id_id"], name: "index_submissions_on_course_id_id"
-  add_index "submissions", ["user_id_id"], name: "index_submissions_on_user_id_id"
+  add_index "submissions", ["course_id"], name: "index_submissions_on_course_id"
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
   create_table "survey_sections", force: :cascade do |t|
     t.integer  "survey_id"

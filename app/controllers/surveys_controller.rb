@@ -67,11 +67,12 @@ end
     end
 
     def submission_params
+
       logger.debug"entered submnission_params"
         logger.debug "current course #{:course}"
 
 
-#          logger.debug "current user is #{current_user.id} and course is #{@course.id}"
+
       params.permit(:question1,:question2,:question3,:question4,:question5,
                     :question6,:question7,:question8,:question9,:question10,
                     :question11,:question12,:question13,:question14,:question15,
@@ -79,7 +80,9 @@ end
                     :question21,:question22,:question23,:question24,:question25,
                     :question26,:question27,:question28,:question29,:question30,
                     :question31, :question32, :question33, :question34, :question34,
+
                     :question35, :question36, :question37, :course_id)
+
 
     end
 

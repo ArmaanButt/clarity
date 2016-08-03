@@ -11,13 +11,15 @@ class SurveysController < ApplicationController
   end
 # this action will be called when the rout url "surveys/save" is hit and is passed the json variable
 def create
-  logger.debug "current course #{@course.id}"
+#  logger.debug "current course #{@course.id}"
+  @user = current_user
   logger.debug"entered create"
   logger.debug "current course #{:course}"
-  logger.debug "current course #{params[:course]}"
+  logger.debug "current course #{params[:course_id]}"
+  logger.debug "#{params}"
 
       logger.debug "successfuly validated user for this course now going to create new instance"
-      @submission = Submission.new(submission_params)
+      @submission = Submission.new(submission_params, :user_id => @user.id )
       if @submission.save
         logger.debug "submission was saved now attempting to redirect"
         redirect_to '/surveys/saved'
@@ -65,12 +67,11 @@ end
     end
 
     def submission_params
-        @course = Course.find_by_id(params[:course])
       logger.debug"entered submnission_params"
         logger.debug "current course #{:course}"
-          logger.debug "current course #{@course}"
 
-          logger.debug "current user is #{current_user.id} and course is #{@course.id}"
+
+#          logger.debug "current user is #{current_user.id} and course is #{@course.id}"
       params.permit(:question1,:question2,:question3,:question4,:question5,
                     :question6,:question7,:question8,:question9,:question10,
                     :question11,:question12,:question13,:question14,:question15,
@@ -78,7 +79,7 @@ end
                     :question21,:question22,:question23,:question24,:question25,
                     :question26,:question27,:question28,:question29,:question30,
                     :question31, :question32, :question33, :question34, :question34,
-                    :question35, :question36, :question37, :user_id => current_user.id, :course_id => @course.id)
+                    :question35, :question36, :question37, :course_id)
 
     end
 

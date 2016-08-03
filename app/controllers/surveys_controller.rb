@@ -39,6 +39,9 @@ end
 
 # function to return true if this user exists and enrolled in this course
     def validate_user_for_course
+      logger.debug "in validate_user_for_course"
+       logger.debug "current course #{@course.id}"
+      logger.debug "after course id check"
     if current_user and current_user.courses.exists?(@course.id)
       return true
     end

@@ -8,7 +8,7 @@ class SurveysController < ApplicationController
         if validate_user_for_course
             @response = Response.create()
             @response.response = response_params
-            @response.course_id = params[:course_id]
+            @response.course_id = params[:course]
             @response.user_id = current_user.id
             @response.save
         end
@@ -26,7 +26,7 @@ class SurveysController < ApplicationController
 
     # function to return true if this user exists and enrolled in this course
     def validate_user_for_course
-        current_user && current_user.courses.exists?(params[:course_id])
+        current_user && current_user.courses.exists?(params[:course])
     end
 
     def response_params

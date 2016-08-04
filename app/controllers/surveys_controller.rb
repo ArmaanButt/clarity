@@ -14,6 +14,10 @@ class SurveysController < ApplicationController
         end
     end
 
+    def show
+      @course = Course.find_by_id(params[:course])
+    end
+
     private
 
     # if we want to use a separate js to surveys.coffee to post, the url should be surveys/save_response as

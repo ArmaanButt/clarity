@@ -7,6 +7,13 @@
   <p>
     <%= button_to "Course Discussion Board", {:controller => :posts, :action => :index, :course => params[:id]}, {class: 'btn btn-primary'} %>
     <%= link_to "Take Survey",  {:controller => :surveys, :action => :show, :course => params[:id]}, {class: 'btn btn-primary'}%>
+    <br>
+    <%- if current_user  and current_user.courses.exists?(@course.id) %>
+    <%= link_to 'unenroll', course_unenroll_path(@course),class: "btn unenroll-button" ,id: "unenroll_"+@course.id.to_s, method: :post %>
+    <%elsif current_user  %>
+    <%= link_to 'enroll', course_enroll_path(@course),class: "btn enroll-button",id: "enroll_"+@course.id.to_s, method: :post %>
+    <% end %>
+
   </p>
 </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801041149) do
+ActiveRecord::Schema.define(version: 20160804153839) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -207,25 +207,12 @@ ActiveRecord::Schema.define(version: 20160801041149) do
   add_index "response_sets", ["course_id"], name: "index_response_sets_on_course_id"
 
   create_table "responses", force: :cascade do |t|
-    t.integer  "response_set_id"
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.datetime "datetime_value"
-    t.integer  "integer_value"
-    t.float    "float_value"
-    t.string   "unit"
-    t.text     "text_value"
-    t.string   "string_value"
-    t.string   "response_other"
-    t.string   "response_group"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "survey_section_id"
-    t.string   "api_id"
+    t.text     "response"
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "responses", ["api_id"], name: "uq_responses_api_id", unique: true
-  add_index "responses", ["survey_section_id"], name: "index_responses_on_survey_section_id"
 
   create_table "submissions", force: :cascade do |t|
     t.string   "question1"

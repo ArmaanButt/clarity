@@ -1,13 +1,13 @@
 #= require knockout-min
 #= require survey.bootstrap.min
 sendDataToServer = (survey) ->
-  resultAsString = JSON.stringify(survey.data)
-  alert(resultAsString)
+  surveyResponse = {"response":survey.data}
+  alert(surveyResponse)
   $.ajax({
     type:'POST',
     headers: {'X-CSRF-Token': $('meta[name="csrf token"]').attr('content')},
-    url: "/surveys/save",
-    data: survey.data,
+    url: "/surveys/save?course_id=4081",
+    data: surveyResponse,
     success: alert("saved"),
     dataType: JSON
     })

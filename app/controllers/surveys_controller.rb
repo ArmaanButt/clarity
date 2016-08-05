@@ -2,7 +2,6 @@ class SurveysController < ApplicationController
     def index
         @course = Course.find_by_id(params[:course])
     end
-
     # this action will be called when the rout url "surveys/save" is hit and is passed the json variable
     def create
         if validate_user_for_course

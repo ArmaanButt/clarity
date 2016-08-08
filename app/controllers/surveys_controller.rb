@@ -23,9 +23,6 @@ class SurveysController < ApplicationController
         end
     end
 
-    def check_if_user_already_responded
-
-    end
     # function to return true if this user exists and enrolled in this course
     def validate_user_for_course
         current_user && current_user.courses.exists?(params[:course])

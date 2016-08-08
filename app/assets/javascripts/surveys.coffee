@@ -2,6 +2,7 @@
 #= require survey.bootstrap.min
 
 course_id = location.search.split('course=')[1]
+
 sendDataToServer = (survey) ->
   surveyResponse = {"response":survey.data}
   alert(surveyResponse)
@@ -14,6 +15,9 @@ sendDataToServer = (survey) ->
     dataType: JSON
     })
 
-$ ->
+ready ->
   survey = new Survey.Survey(surveyJSON, "surveyContainer")
   survey.onComplete.add(sendDataToServer)
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

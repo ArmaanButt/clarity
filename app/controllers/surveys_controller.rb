@@ -6,11 +6,7 @@ class SurveysController < ApplicationController
     # this action will be called when the rout url "surveys/save" is hit and is passed the json variable
     def create
         if validate_user_for_course
-            @response = Response.create()
-            @response.response = response_params
-            @response.course_id = params[:course]
-            @response.user_id = current_user.id
-            @response.save
+            Response.find_or_initialize_by(:user_id => current_user.id, :course_id => params[:course]).update_attributes!(:response => response_params)
         end
     end
 
@@ -28,6 +24,9 @@ class SurveysController < ApplicationController
         end
     end
 
+    def check_if_user_already_responded
+
+    end
     # function to return true if this user exists and enrolled in this course
     def validate_user_for_course
         current_user && current_user.courses.exists?(params[:course])

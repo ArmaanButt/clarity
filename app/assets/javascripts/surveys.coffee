@@ -14,10 +14,8 @@ sendDataToServer = (survey) ->
     success: alert("saved"),
     dataType: JSON
     })
-
-ready ->
+ready = () ->
   survey = new Survey.Survey(surveyJSON, "surveyContainer")
   survey.onComplete.add(sendDataToServer)
-
 $(document).ready(ready);
 $(document).on('page:load', ready);

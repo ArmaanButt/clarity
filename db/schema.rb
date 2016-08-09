@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804153839) do
+ActiveRecord::Schema.define(version: 20160809152259) do
+
+  create_table "aggregated_responses", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.integer  "course_id"
+    t.integer  "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"

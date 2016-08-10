@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 get '/surveys/saved'
 get '/surveys/nosaved'
  post '/surveys/save' => 'surveys#create'
+ get '/results/' => 'results#show'
 
 
   post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'

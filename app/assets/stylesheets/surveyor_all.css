@@ -1,9 +1,9 @@
 /*
-*= require surveyor/reset
-*= require surveyor/jquery-ui-1.10.0.custom
-*= require surveyor/jquery-ui-timepicker-addon
-*= require surveyor/ui.slider.extras
-*= require surveyor/results
-*= require surveyor
-*= require custom
+*= qw require surveyor/reset
+*= qw require surveyor/jquery-ui-1.10.0.custom
+*= qw require surveyor/jquery-ui-timepicker-addon
+*= qw require surveyor/ui.slider.extras
+*= qw require surveyor/results
+*= qw require surveyor
+*= qw require custom
 */

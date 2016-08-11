@@ -1,0 +1,83 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question1: MyString
+  question2: MyString
+  question3: MyString
+  question4: MyString
+  question5: MyString
+  question6: MyString
+  question7: MyString
+  question8: MyString
+  question9: MyString
+  question10: MyString
+  question11: MyString
+  question12: MyString
+  question13: MyString
+  question14: MyString
+  question15: MyString
+  question16: MyString
+  question17: MyString
+  question18: MyString
+  question19: MyString
+  question20: MyString
+  question21: MyString
+  question22: MyString
+  question23: MyString
+  question24: MyString
+  question25: MyString
+  question26: MyString
+  question27: MyString
+  question28: MyString
+  question29: MyString
+  question30: MyString
+  question31: MyString
+  question32: MyString
+  question33: MyString
+  question34: MyString
+  qeustion35: MyString
+  question36: MyString
+  question37: MyString
+  user_id_id: 
+  course_id_id: 
+
+two:
+  question1: MyString
+  question2: MyString
+  question3: MyString
+  question4: MyString
+  question5: MyString
+  question6: MyString
+  question7: MyString
+  question8: MyString
+  question9: MyString
+  question10: MyString
+  question11: MyString
+  question12: MyString
+  question13: MyString
+  question14: MyString
+  question15: MyString
+  question16: MyString
+  question17: MyString
+  question18: MyString
+  question19: MyString
+  question20: MyString
+  question21: MyString
+  question22: MyString
+  question23: MyString
+  question24: MyString
+  question25: MyString
+  question26: MyString
+  question27: MyString
+  question28: MyString
+  question29: MyString
+  question30: MyString
+  question31: MyString
+  question32: MyString
+  question33: MyString
+  question34: MyString
+  qeustion35: MyString
+  question36: MyString
+  question37: MyString
+  user_id_id: 
+  course_id_id: 

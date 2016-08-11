@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= requidfdsfre_tree .
  *= require_self
- *= require commontator/application
+ *= rfdssdfdsequire commontator/application
  *= require bootstrap.min
  */
 
@@ -23,11 +23,11 @@
  .enroll-button {
    text-transform: uppercase;
    border-color: #4090db;
+   background-color: #4090db;
    color: white;
-   margin-left: 20px;
    &:visited, &:focus, &:hover {
      border-color: #2D6396;
-     color: #2D6396;
+     color: white;
    }
  }
 
@@ -36,7 +36,6 @@
    border-color: #66bd2b;
    background-color: #66bd2b;
    color: white;
-   margin-left: 20px;
    &:visited, &:focus, &:hover {
      border-color: #47821F;
      background-color: #47821F;

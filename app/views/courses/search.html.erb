@@ -19,13 +19,21 @@
                 <%= link_to course.course_code, course_path(course), method: :get%>
             </td>
             <td>
+              <% if course.course_name %>
                 <%= link_to course.course_name, course_path(course), method: :get%>
+
+                <%else%>
+                <%= "No name found" %>
+                <%end%>
+
+
+
             </td>
             <td class="text-center">
                 <%- if current_user  and current_user.courses.exists?(course.id) %>
-                <%= link_to 'unenroll', course_unenroll_path(course),class: "btn btn-primary unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
+                <%= link_to 'unenroll', course_unenroll_path(course),class: "btn unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
                 <%elsif current_user  %>
-                <%= link_to 'enroll', course_enroll_path(course),class: "btn btn-primary enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
+                <%= link_to 'enroll', course_enroll_path(course),class: "btn enroll-button",id: "enroll_"+course.id.to_s, method: :post %>
                 <% end %>
             </td>
         </tr>

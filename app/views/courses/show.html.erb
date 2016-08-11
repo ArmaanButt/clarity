@@ -5,7 +5,7 @@
     <%= @course.description %>
   </p>
   <p>
-    <%= button_to "Course Discussion Board", {:controller => :posts, :action => :index, :course => params[:id]}, {class: 'btn btn-primary'} %>
+    <%= link_to "Course Discussion Board", {:controller => :posts, :course => params[:id]}, {class: 'btn btn-primary'} %>
     <%= link_to "Take Survey",  {:controller => :surveys, :action => :show, :course => params[:id]}, {class: 'btn btn-primary'}%>
     <br>
     <%- if current_user  and current_user.courses.exists?(@course.id) %>

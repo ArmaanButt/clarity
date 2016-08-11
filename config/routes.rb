@@ -1,37 +1,28 @@
 Rails.application.routes.draw do
-
-
-  root 'homepage#index'
-  resources :courses do
-    collection do
-      get 'search'
-      get 'user_courses'
-      get :autocomplete
+    root 'homepage#index'
+    resources :courses do
+        collection do
+            get 'search'
+            get 'user_courses'
+            get :autocomplete
+        end
     end
-  end
 
- get '/courses/user_courses' => 'courses#user_courses', as: :user_root
+    get '/courses/user_courses' => 'courses#user_courses', as: :user_root
 
- post '/posts' => 'posts#create', as: 'post_create'
- resources :posts
+    get '/posts' => 'posts#index', as: 'post_index'
+    resources :posts
 
+    get '/survey' => 'surveys#show'
+    get '/surveys/saved'
+    get '/surveys/nosaved'
+    post '/surveys/save' => 'surveys#create'
+    get '/results/' => 'results#show'
 
- get '/survey' => 'surveys#show'
-get '/surveys/saved'
-get '/surveys/nosaved'
- post '/surveys/save' => 'surveys#create'
- get '/results/' => 'results#show'
+    post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
+    post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
 
+    devise_for :users, controllers: { registrations: 'registrations' }
 
-  post 'enroll/:id' => 'courses#enroll', as: 'course_enroll'
-  post 'unenroll/:id' => 'courses#unenroll', as: 'course_unenroll'
-
-
-  devise_for :users, controllers: { registrations: "registrations" }
-
-  mount Commontator::Engine => '/commontator'
-
-  mount Surveyor::Engine => "/surveys", :as => "surveyor"
-  get '/surveys' => 'surveyor#new'
-
+    mount Commontator::Engine => '/commontator'
 end

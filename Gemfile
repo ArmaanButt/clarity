@@ -33,6 +33,8 @@ gem 'simple_form', '~> 3.0.2'
 gem 'commontator', '~> 4.11.1'
 #Posts Engine
 gem 'acts_as_votable'
+#Chart engine
+gem "chartkick"
 
 # Use the latest functionality which hasn't been released as a new gem version yet
 gem 'surveyor', git: "https://github.com/NUBIC/surveyor.git",

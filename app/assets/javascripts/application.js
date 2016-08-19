@@ -32,13 +32,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "It was a required course",
                 text: "It was a required course"
             }, {
-                value: "2",
+                value: "It was an elective",
                 text: "It was an elective"
             }, {
-                value: "3",
+                value: "It was a bird course",
                 text: "It was a bird course"
             }],
             hasOther: true,
@@ -48,13 +48,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "Yes",
                 text: "Yes"
             }, {
-                value: "2",
+                value: "No",
                 text: "No"
             }, {
-                value: "3",
+                value: "Don't know",
                 text: "Don't know"
             }],
             name: "question3",
@@ -62,25 +62,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "More than average",
                 text: "More than average"
             }, {
-                value: "3",
+                value: "Slightly more than average",
                 text: "Slightly more than average"
             }, {
-                value: "4",
+                value: "Average",
                 text: "Average"
             }, {
-                value: "5",
+                value: "Slightly less than average",
                 text: "Slightly less than average"
             }, {
-                value: "6",
+                value: "Barely any",
                 text: "Barely any"
             }, {
-                value: "7",
+                value: "None",
                 text: "None"
             }],
             name: "question4",

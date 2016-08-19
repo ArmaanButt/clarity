@@ -1,7 +1,31 @@
 <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 
-<%= timeline [
-  ["Washington", "1789-04-29", "1797-03-03"],
-  ["Adams", "1797-03-03", "1801-03-03"],
-  ["Jefferson", "1801-03-03", "1809-03-03"]
-] %>
+<!-- <%=
+  jsonresults=@results.to_json
+  parsed_json = JSON.parse jsonresults
+  to_print=""
+  parsed_json.each do |json_entry|
+    to_print = to_print + json_entry["question"]
+  end
+  parsed_json
+%> -->
+
+<% (2..37).each do |i| %>
+<%= "Question " + i.to_s%>
+<%=
+answers = AggregatedResponse.where(course_id: params[:course], question: "question"+ i.to_s)
+cleaned = {}
+
+answers.each do |answer|
+  cleaned.merge!(answer[:answer] => answer[:count])
+end
+
+pie_chart cleaned
+%>
+
+
+
+<!-- test = {"1" => 300, "2" => 100}
+
+pie_chart @results.where(:question=>"question2").group(:answer).count -->
+<% end %>

@@ -32,13 +32,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "It was a required course",
+                value: "1. It was a required course",
                 text: "It was a required course"
             }, {
-                value: "It was an elective",
+                value: "2. It was an elective",
                 text: "It was an elective"
             }, {
-                value: "It was a bird course",
+                value: "3. It was a bird course",
                 text: "It was a bird course"
             }],
             hasOther: true,
@@ -48,13 +48,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "Yes",
+                value: "1. Yes",
                 text: "Yes"
             }, {
-                value: "No",
+                value: "2. No",
                 text: "No"
             }, {
-                value: "Don't know",
+                value: "3. Don't know",
                 text: "Don't know"
             }],
             name: "question3",
@@ -62,25 +62,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "Far above average",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "More than average",
+                value: "2. More than average",
                 text: "More than average"
             }, {
-                value: "Slightly more than average",
+                value: "3. Slightly more than average",
                 text: "Slightly more than average"
             }, {
-                value: "Average",
+                value: "4. Average",
                 text: "Average"
             }, {
-                value: "Slightly less than average",
+                value: "5. Slightly less than average",
                 text: "Slightly less than average"
             }, {
-                value: "Barely any",
+                value: "6. Barely any",
                 text: "Barely any"
             }, {
-                value: "None",
+                value: "7. None",
                 text: "None"
             }],
             name: "question4",
@@ -88,39 +88,39 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
-            name: "question5",
-            title: "Rate the professor "
+            name: "Rate the professor",
+            title: "Rate the professor"
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question6",
@@ -128,19 +128,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question7",
@@ -148,16 +148,16 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. I aced it",
                 text: "I aced it"
             }, {
-                value: "2",
+                value: "2. I passed it",
                 text: "I passed it"
             }, {
-                value: "3",
+                value: "3. I failed",
                 text: "I failed"
             }, {
-                value: "4",
+                value: "4. I dropped",
                 text: "I dropped"
             }],
             name: "question8",
@@ -165,19 +165,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. A",
                 text: "A"
             }, {
-                value: "2",
+                value: "2. B",
                 text: "B"
             }, {
-                value: "3",
+                value: "3. C",
                 text: "C"
             }, {
-                value: "4",
+                value: "4. D",
                 text: "D"
             }, {
-                value: "5",
+                value: "5. F",
                 text: "F"
             }],
             name: "question9",
@@ -185,25 +185,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Big Bird",
                 text: "Big Bird"
             }, {
-                value: "2",
+                value: "2. Very Easy",
                 text: "Very Easy"
             }, {
-                value: "3",
+                value: "3. Easy",
                 text: "Easy"
             }, {
-                value: "4",
+                value: "4. Average",
                 text: "Average"
             }, {
-                value: "5",
+                value: "5. Difficult",
                 text: "Difficult"
             }, {
-                value: "6",
+                value: "6. Very Difficult",
                 text: "Very Difficult"
             }, {
-                value: "7",
+                value: "7. Oscar the Grouch",
                 text: "Oscar the Grouch"
             }],
             name: "question10",
@@ -211,13 +211,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Yes",
                 text: "Yes"
             }, {
-                value: "2",
+                value: "2. No",
                 text: "No"
             }, {
-                value: "3",
+                value: "3. Don't Know",
                 text: "Don't Know"
             }],
             name: "question11",
@@ -225,13 +225,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Yes",
                 text: "Yes"
             }, {
-                value: "2",
+                value: "2. No",
                 text: "No"
             }, {
-                value: "3",
+                value: "3. Don't know",
                 text: "Don't know"
             }],
             name: "question12",
@@ -239,13 +239,13 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Yes",
                 text: "Yes"
             }, {
-                value: "2",
+                value: "2. No",
                 text: "No"
             }, {
-                value: "3",
+                value: "3. Don't know",
                 text: "Don't know"
             }],
             name: "question13",
@@ -253,19 +253,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Very easy",
                 text: "Very easy"
             }, {
-                value: "2",
+                value: "2. Easy",
                 text: "Easy"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Difficult",
                 text: "Difficult"
             }, {
-                value: "5",
+                value: "5. Very difficult",
                 text: "Very difficult"
             }],
             name: "question14",
@@ -273,19 +273,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Very useful",
                 text: "Very useful"
             }, {
-                value: "2",
+                value: "2. Somewhat useful",
                 text: "Somewhat useful"
             }, {
-                value: "3",
+                value: "3. Averagely useful",
                 text: "Averagely useful"
             }, {
-                value: "4",
+                value: "4. Less useful than average",
                 text: "Less useful than average"
             }, {
-                value: "5",
+                value: "5. Not useful",
                 text: "Not useful"
             }],
             name: "question15",
@@ -293,19 +293,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question16",
@@ -313,19 +313,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question17",
@@ -333,19 +333,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question18",
@@ -353,19 +353,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question19",
@@ -373,19 +373,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question20",
@@ -393,19 +393,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question21",
@@ -413,19 +413,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question22",
@@ -433,19 +433,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question23",
@@ -453,19 +453,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Far above average",
                 text: "Far above average"
             }, {
-                value: "2",
+                value: "2. Above average",
                 text: "Above average"
             }, {
-                value: "3",
+                value: "3. Average",
                 text: "Average"
             }, {
-                value: "4",
+                value: "4. Below average",
                 text: "Below average"
             }, {
-                value: "5",
+                value: "5. Far below average",
                 text: "Far below average"
             }],
             name: "question24",
@@ -473,19 +473,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question25",
@@ -493,19 +493,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question26",
@@ -513,19 +513,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question27",
@@ -533,19 +533,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question28",
@@ -553,19 +553,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question29",
@@ -573,19 +573,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question30",
@@ -593,19 +593,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question31",
@@ -613,19 +613,19 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "2",
+                value: "2. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "3",
+                value: "3. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "4",
+                value: "4. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "5",
+                value: "5. Definitely disagree",
                 text: "Definitely disagree"
             }],
             name: "question32",
@@ -633,25 +633,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Sexiest man/woman alive",
                 text: "Sexiest man/woman alive"
             }, {
-                value: "2",
+                value: "2. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "3",
+                value: "3. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "4",
+                value: "4. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "5",
+                value: "5. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "6",
+                value: "6. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "7",
+                value: "7. Like Gary Busey after a fight with Mohammed Ali",
                 text: "Like Gary Busey after a fight with Mohammed Ali"
             }],
             name: "question33",
@@ -659,25 +659,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Impeccable fashion taste",
                 text: "Impeccable fashion taste"
             }, {
-                value: "2",
+                value: "2. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "3",
+                value: "3. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "4",
+                value: "4. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "5",
+                value: "5. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "6",
+                value: "6. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "7",
+                value: "7. Thinks oversized jorts are a good idea",
                 text: "Thinks oversized jorts are a good idea"
             }],
             name: "question34",
@@ -685,25 +685,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Like a boquet of roses",
                 text: "Like a boquet of roses"
             }, {
-                value: "2",
-                text: "Definitely agree"
+              value: "2. Definitely agree",
+              text: "Definitely agree"
+          }, {
+              value: "3. Somewhat agree",
+              text: "Somewhat agree"
+          }, {
+              value: "4. Don't agree or disagree",
+              text: "Don't agree or disagree"
+          }, {
+              value: "5. Somewhat disagree",
+              text: "Somewhat disagree"
+          }, {
+              value: "6. Definitely agree",
+              text: "Definitely agree"
             }, {
-                value: "3",
-                text: "Somewhat agree"
-            }, {
-                value: "4",
-                text: "I'm not creepy enough to answer this question"
-            }, {
-                value: "5",
-                text: "Somewhat disagree"
-            }, {
-                value: "6",
-                text: "Definitely agree"
-            }, {
-                value: "7",
+                value: "7. Like that milk you forgot to put in the fridge, finely aged a few years",
                 text: "Like that milk you forgot to put in the fridge, finely aged a few years"
             }],
             name: "question35",
@@ -711,25 +711,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. As many enemies as that sweet grandma who bakes everyone free pie",
                 text: "As many enemies as that sweet grandma who bakes everyone free pie"
-            }, {
-                value: "2",
+              }, {
+                value: "2. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "3",
+                value: "3. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "4",
+                value: "4. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "5",
+                value: "5. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "6",
+                value: "6. Definitely agree",
                 text: "Definitely agree"
-            }, {
-                value: "7",
+              }, {
+                value: "7. Meek Mill",
                 text: "Meek Mill"
             }],
             name: "question36",
@@ -737,25 +737,25 @@ var surveyJSON = {
         }, {
             type: "radiogroup",
             choices: [{
-                value: "1",
+                value: "1. Chillest prof on the planet",
                 text: "Chillest prof on the planet"
-            }, {
-                value: "2",
+              }, {
+                value: "2. Definitely agree",
                 text: "Definitely agree"
             }, {
-                value: "3",
+                value: "3. Somewhat agree",
                 text: "Somewhat agree"
             }, {
-                value: "4",
+                value: "4. Don't agree or disagree",
                 text: "Don't agree or disagree"
             }, {
-                value: "5",
+                value: "5. Somewhat disagree",
                 text: "Somewhat disagree"
             }, {
-                value: "6",
+                value: "6. Definitely agree",
                 text: "Definitely agree"
-            }, {
-                value: "7",
+              }, {
+                value: "7. If you paid me I still wouldn't do it",
                 text: "If you paid me I still wouldn't do it"
             }],
             name: "question37",

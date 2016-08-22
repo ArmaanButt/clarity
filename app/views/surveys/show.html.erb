@@ -3,4 +3,5 @@
 <%= javascript_include_tag 'survey' %>
 
 <h3><%= @course.course_code %>: <%= @course.course_name%></h3>
+<%= link_to "View Results",  {:controller => :results, :action => :show, :course => params[:course]}, {class: 'btn btn-warning'}%>
 <div id="surveyContainer"></div>

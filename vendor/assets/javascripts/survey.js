@@ -8,7 +8,7 @@
     surveyResponse = {
       "response": survey.data
     };
-    return $.ajax({
+   $.ajax({
       type: 'POST',
       headers: {
         'X-CSRF-Token': $('meta[name="csrf token"]').attr('content')
@@ -17,12 +17,13 @@
       data: surveyResponse,
       dataType: JSON
     });
+    window.location.replace("/results?course="+course_id);
   };
 
   ready = function() {
     var survey;
     survey = new Survey.Survey(surveyJSON, "surveyContainer");
-    return survey.onComplete.add(sendDataToServer);
+    survey.onComplete.add(sendDataToServer);
   };
 
   $(document).ready(ready);

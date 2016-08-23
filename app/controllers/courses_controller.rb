@@ -7,7 +7,9 @@ def search
   if params[:search].present?
     @course = Course.search(params[:search],fields:[:course_code ,:course_name])
   else
-    @course = Course.all
+    # Returning Random Course
+    ids = Course.pluck(:id).shuffle[0..99]
+    @course = Course.where(id: ids)
   end
 end
 

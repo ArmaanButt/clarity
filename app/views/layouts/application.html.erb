@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>clarity.io</title>
+        <title>clarity</title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,9 +22,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%if current_user%>
-                    <%= link_to "clarity.io", :user_root, class: "navbar-brand", method: :get%>
+                    <%= link_to "clarity", :user_root, class: "navbar-brand", method: :get%>
                     <%else%>
-                    <%= link_to "clarity.io", root_url, class: "navbar-brand", method: :get %>
+                    <%= link_to "clarity", root_url, class: "navbar-brand", method: :get %>
                     <%end%>
                 </div>
 

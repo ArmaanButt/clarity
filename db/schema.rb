@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809152259) do
+ActiveRecord::Schema.define(version: 20160823171122) do
 
   create_table "aggregated_responses", force: :cascade do |t|
     t.string   "question"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20160809152259) do
     t.string   "course_code"
     t.string   "description"
     t.string   "prerequisites"
+    t.string   "division"
+    t.string   "campus"
   end
 
   create_table "courses_users", id: false, force: :cascade do |t|

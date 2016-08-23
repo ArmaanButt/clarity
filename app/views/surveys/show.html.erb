@@ -4,4 +4,10 @@
 
 <h3><%= @course.course_code %>: <%= @course.course_name%></h3>
 <%= link_to "View Results",  {:controller => :results, :action => :show, :course => params[:course]}, {class: 'btn btn-warning'}%>
+<%=
+  previous_answer = Response.find_by(:user_id => current_user.id, :course_id => params[:course])
+  if previous_answer
+    "You have already completed this survey"
+  end
+%>
 <div id="surveyContainer"></div>

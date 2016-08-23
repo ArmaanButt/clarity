@@ -12,7 +12,7 @@
     <body id="navpad">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -41,7 +41,10 @@
                             <% end %>
                         </li>
                         <li>
-                            <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                            <%= link_to "My Courses" , user_courses_courses_path, method: :get %>
+                        </li>
+                        <li>
+                          <%= link_to "I'm Feeling Lucky", "/courses/", method: :get %>
                         </li>
                         <li>
                             <%= link_to "Log out", destroy_user_session_path, method: :delete %>

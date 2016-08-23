@@ -104,7 +104,7 @@ var surveyJSON = {
                 value: "5. Far below average",
                 text: "Far below average"
             }],
-            name: "Rate the professor",
+            name: "question5",
             title: "Rate the professor"
         }, {
             type: "radiogroup",

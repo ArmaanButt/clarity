@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    ids = Course.pluck(:id).shuffle[0..99]
+    @course = Course.where(id: ids)
   end
 
 def search

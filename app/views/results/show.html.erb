@@ -11,7 +11,10 @@
 %> -->
 
 <% (2..37).each do |i| %>
-<%= "Question " + i.to_s%>
+<h6><%= "Question " + i.to_s%>: <%=
+  @quest=Question.find_by(qid: "question" + i.to_s)
+  @quest.question_text
+  %></h6>
 <%=
 answers = AggregatedResponse.where(course_id: params[:course], question: "question"+ i.to_s)
 cleaned = {}

@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(version: 20160823171122) do
   add_index "posts", ["course_id"], name: "index_posts_on_course_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "qid"
+    t.string   "question_text"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"

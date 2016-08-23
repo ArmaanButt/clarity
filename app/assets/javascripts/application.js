@@ -22,6 +22,7 @@
 //= require jput.min
 //= require turbolinks
 
+
 var surveyJSON = {
     pages: [{
         name: "page1",

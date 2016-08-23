@@ -7,3 +7,4 @@
 #= require bootstrap.min
 #= require typed.min
 #= require grayscale
+#= require parallax.min

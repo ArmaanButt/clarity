@@ -9,7 +9,7 @@
 
     </head>
 
-    <body>
+    <body id="navpad">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
@@ -22,9 +22,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%if current_user%>
-                    <%= link_to "Clarity.io", :user_root, class: "navbar-brand", method: :get%>
+                    <%= link_to "clarity.io", :user_root, class: "navbar-brand", method: :get%>
                     <%else%>
-                    <%= link_to "Clarity.io", root_url, class: "navbar-brand" %>
+                    <%= link_to "clarity.io", root_url, class: "navbar-brand", method: :get %>
                     <%end%>
                 </div>
 
@@ -77,9 +77,9 @@
 
         <nav class="navbar navbar-inverse navbar-fixed-bottom">
           <div class="container-fluid">
-            <center>
-              <a href="http://www.soti.net" class="navbar-brand text-center">Powered By SOTI</a>
-            </center>
+            <div class="text-center">
+              <a href="http://www.soti.net/"><h5 style="color:white;">Powered By <img src="/img/soti.png" style="max-width: 90px; max-height: 57px;"/></h5></a>
+            </div>
           </div>
         </nav>
     </body>

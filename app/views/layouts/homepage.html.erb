@@ -9,10 +9,28 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
         <title>clarity</title>
+        <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'homepage', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'homepage', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
 
     </head>
 
@@ -27,7 +45,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">
-                      clarity
+                      <img class="logo" align="left" src="/img/clarity-invert.svg"/> clarity
                     </a>
                 </div>
 
@@ -38,12 +56,12 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="page-scroll" href="#about">About</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#services">What does clarity do?</a>
-                        </li>
+                        </li> -->
                         <li>
                             <% if signed_in? %>
                             <a href="/courses/user_courses"><%= current_user.email %></a>
@@ -51,6 +69,11 @@
                             <%= link_to "Login", new_user_session_path, class: "page-scroll" %>
                             <% end %>
                         </li>
+                        <%if !signed_in?%>
+                        <li>
+                          <%= link_to "Sign Up", "/users/sign_up", class: "page-scroll" %>
+                        </li>
+                        <%end%>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -61,10 +84,10 @@
         <!-- Header -->
         <header id="top" class="header">
             <div class="text-vertical-center parallax-window" data-parallax="scroll" data-image-src="/img/ts.jpg">
-                <h1>clarity</h1>
-                <h3>
+                <img class="img-responsive center-block" src="/img/clarity.svg" style="height: 250px;"/>
+                <h1 class="text-invert">
                     <span class="skillType"></span>
-                </h3>
+                </h1>
                 <br>
                 <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
             </div>
@@ -75,7 +98,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>With all the hassle of university, sometimes we require clarity.</h2>
+                        <h2>With all the hassle of university, you deserve clarity.</h2>
                     </div>
                 </div>
                 <!-- /.row -->

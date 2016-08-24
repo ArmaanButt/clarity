@@ -15,7 +15,8 @@
 <div class="row">
     <div class="col-lg-12">
         <ul class="list-group">
-            <a href="/posts/new?course=4317" class="btn btn-primary">Create Post</a>
+            <a href="/posts/new?course=<%=params[:course]%>" class="btn btn-primary">Create Post</a>
+            <br>
             <% @posts.each do |post| %>
             <li class="list-group-item"><%= link_to(post.title, post) %></li>
             <% end %>

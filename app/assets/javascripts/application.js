@@ -58,6 +58,7 @@ var surveyJSON = {
                 value: "Don't know",
                 text: "Don't know"
             }],
+            isRequired: true,
             name: "question3",
             title: "Were there participation marks?"
         }, {
@@ -84,6 +85,7 @@ var surveyJSON = {
                 value: "None",
                 text: "None"
             }],
+            isRequired: true,
             name: "question4",
             title: "How much collaborative work and group projects were there?"
         }, {
@@ -104,6 +106,7 @@ var surveyJSON = {
                 value: "Far below average",
                 text: "Far below average"
             }],
+            isRequired: true,
             name: "question5",
             title: "Rate the professor"
         }, {
@@ -125,6 +128,7 @@ var surveyJSON = {
                 text: "Far below average"
             }],
             name: "question6",
+            isRequired: true,
             title: "Rate the course content"
         }, {
             type: "radiogroup",

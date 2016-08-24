@@ -1,25 +1,56 @@
 <div class="jumbotron">
-  <h1><%= @course.course_code %></h1>
-  <h2><%= @course.course_name %></h2>
-  <p>
-    <%= @course.description %>
-  </p>
-  <p>
-    <%= link_to "Course Discussion Board", {:controller => :posts, :course => params[:id]}, {class: 'btn btn-info'} %>
-    <%- if current_user  and current_user.courses.exists?(@course.id) %>
-    <%= link_to "Take Survey",  {:controller => :surveys, :action => :show, :course => params[:id]}, {class: 'btn btn-primary'}%>
-    <%= link_to "View Results",  {:controller => :results, :action => :show, :course => params[:id]}, {class: 'btn btn-warning'}%>
-    <%= link_to 'unenroll', course_unenroll_path(@course),class: "btn unenroll-button" ,id: "unenroll_"+@course.id.to_s, method: :post %>
-    <%elsif current_user  %>
-    <%= link_to 'enroll', course_enroll_path(@course),class: "btn enroll-button",id: "enroll_"+@course.id.to_s, method: :post %>
-    <% end %>
+    <h1><%= @course.course_code %></h1>
+    <h3><%= @course.course_name %></h3>
+    <p>
+        <%= @course.description %>
+    </p>
+    <p>
+        <%= link_to "Course Discussion Board", {:controller => :posts, :course => params[:id]}, {class: 'btn btn-info'} %>
+        <%- if current_user  and current_user.courses.exists?(@course.id) %>
+        <%= link_to "Take Survey",  {:controller => :surveys, :action => :show, :course => params[:id]}, {class: 'btn btn-primary'}%>
+        <%= link_to "View Results",  {:controller => :results, :action => :show, :course => params[:id]}, {class: 'btn btn-warning'}%>
+        <%= link_to 'unfollow', course_unenroll_path(@course),class: "btn unenroll-button" ,id: "unenroll_"+@course.id.to_s, method: :post %>
+        <%elsif current_user  %>
+        <%= link_to 'follow', course_enroll_path(@course),class: "btn enroll-button",id: "enroll_"+@course.id.to_s, method: :post %>
+        <% end %>
 
-  </p>
+    </p>
 </div>
-<h4>
-    <strong>Prerequisites:</strong>
-    <%= @course.prerequisites %>
-</h4>
+
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Prerequisites</h3>
+            </div>
+            <div class="panel-body">
+                <%= @course.prerequisites %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Campus</h3>
+            </div>
+            <div class="panel-body">
+                <%= @course.campus %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Faculty</h3>
+            </div>
+            <div class="panel-body">
+                <%= @course.division %>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 <p>
     <%= commontator_thread(@course) %>

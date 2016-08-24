@@ -23,7 +23,7 @@
             </td>
             <td class="text-center">
                 <%- if current_user  and current_user.courses.exists?(course.id) %>
-                  <%= link_to 'unenroll', course_unenroll_path(course),class: "btn unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
+                  <%= link_to 'unfollow', course_unenroll_path(course),class: "btn unenroll-button" ,id: "unenroll_"+course.id.to_s, method: :post %>
                 <% end %>
             </td>
         </tr>

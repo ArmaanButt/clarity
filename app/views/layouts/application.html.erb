@@ -2,17 +2,34 @@
 <html>
 
     <head>
-        <title>clarity.io</title>
+        <title>clarity</title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
     </head>
 
     <body id="navpad">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -22,9 +39,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%if current_user%>
-                    <%= link_to "clarity.io", :user_root, class: "navbar-brand", method: :get%>
+                    <a class="navbar-brand page-scroll" data-method="get" href="/courses/user_courses">
+                      <img class="logo" align="left" src="/img/clarity.svg"/>clarity
+                    </a>
                     <%else%>
-                    <%= link_to "clarity.io", root_url, class: "navbar-brand", method: :get %>
+                    <a class="navbar-brand page-scroll" data-method="get" href="<%=root_url%>">
+                      <img class="logo" align="left" src="/img/clarity.svg"/>clarity
+                    </a>
                     <%end%>
                 </div>
 
@@ -41,7 +62,10 @@
                             <% end %>
                         </li>
                         <li>
-                            <%= link_to "My courses" , user_courses_courses_path, method: :get %>
+                            <%= link_to "My Courses" , user_courses_courses_path, method: :get %>
+                        </li>
+                        <li>
+                          <%= link_to "I'm Feeling Lucky", "/courses/", method: :get %>
                         </li>
                         <li>
                             <%= link_to "Log out", destroy_user_session_path, method: :delete %>

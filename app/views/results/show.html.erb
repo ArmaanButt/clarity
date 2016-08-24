@@ -1,34 +1,45 @@
 <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 
-<!-- <%=
-  jsonresults=@results.to_json
-  parsed_json = JSON.parse jsonresults
-  to_print=""
-  parsed_json.each do |json_entry|
-    to_print = to_print + json_entry["question"]
-  end
-  parsed_json
-%> -->
+<ul class="nav nav-tabs">
+  <li class=""><a href="/courses/<%=params[:course]%>">Back to <%= @course.course_code%> Info Page</a></li>
+  <li class="dropdown active">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+      Question Number <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% (2..37).each do |i| %>
+        <li class="<%= if i==2 then "active" end%>"><a href="#<%= "question" + i.to_s%>" data-toggle="tab" aria-expanded="true">Question<%= " "+i.to_s%></a></li>
+      <%end%>
+      <li>
+        dfsfd
+      </li>
+      <li>
+        sdffdf
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <% (2..37).each do |i| %>
+  <div class="tab-pane fade <%= if i==2 then "active in" end%>" id="<%="question" + i.to_s%>" >
+    <div class="page-header text-center">
+      <h5><%=
+        @quest=Question.find_by(qid: "question" + i.to_s)
+        i.to_s + ". " +@quest.question_text
+        %></h5>
+    </div>
+    <div class="row">
+      <%=
+      answers = AggregatedResponse.where(course_id: params[:course], question: "question"+ i.to_s)
+      cleaned = {}
 
-<% (2..37).each do |i| %>
-<h6><%= "Question " + i.to_s%>: <%=
-  @quest=Question.find_by(qid: "question" + i.to_s)
-  @quest.question_text
-  %></h6>
-<%=
-answers = AggregatedResponse.where(course_id: params[:course], question: "question"+ i.to_s)
-cleaned = {}
+      answers.each do |answer|
+        cleaned.merge!(answer[:answer] => answer[:count])
+      end
 
-answers.each do |answer|
-  cleaned.merge!(answer[:answer] => answer[:count])
-end
-
-pie_chart cleaned
-%>
-
-
-
-<!-- test = {"1" => 300, "2" => 100}
-
-pie_chart @results.where(:question=>"question2").group(:answer).count -->
-<% end %>
+      pie_chart cleaned
+      %>
+    </div>
+  </div>
+  <%end%>
+</div>

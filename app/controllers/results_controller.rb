@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   layout "application"
   def show
     # @questions = Question.all
-    # @answers = AggregatedResponse.where(course_id: params[:course])
+    @results = AggregatedResponse.where(course_id: params[:course])
     # cleaned = Hash.new
     @course = Course.find_by(id: params[:course])
   end

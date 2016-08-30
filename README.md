@@ -2,6 +2,15 @@
 
 Clarity is a social platform for University students to rate, review, and discuss courses.
 
+## Contribute
+
+Pull requests are greatly appreciated.
+
+Feel free to find and fix any UI issues. Additionally, I feel there is a lot of room for improvement in the efficiency department.
+
+If you wish to contact me with questions about this project, tweet to me [@armaangalaxy](http://twitter.com/armaangalaxy). 
+
+
 ### Ruby On Rails Setup
 
 1) open CMD and execute: ruby -v if ruby is installed then you should get a version number. if not then download ruby from http://rubyinstaller.org/downloads/ and install

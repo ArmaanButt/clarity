@@ -2,13 +2,15 @@
 
 Clarity is a social platform for University students to rate, review, and discuss courses.
 
+Check it out @ https://clarityio.herokuapp.com/
+
 ## Contribute
 
 Pull requests are greatly appreciated.
 
 Feel free to find and fix any UI issues. Additionally, I feel there is a lot of room for improvement in the efficiency department.
 
-If you wish to contact me with questions about this project, tweet to me [@armaangalaxy](http://twitter.com/armaangalaxy). 
+If you wish to contact me with questions about this project, tweet to me [@armaangalaxy](http://twitter.com/armaangalaxy).
 
 
 ## Ruby On Rails Setup (For Windows)
@@ -23,7 +25,7 @@ If you get some sort of path bindings issue during the install of rails go back 
 
 	http://rubyinstaller.org/downloads/  
 
-and download the latest toolkit. 
+and download the latest toolkit.
 The tool kit should download to your downloads folder. Go to it and unzip.
 Then through CMD cd into the download folder and run the following commands :
 
@@ -35,25 +37,19 @@ Then through CMD cd into the download folder and run the following commands :
 
 		gem install rails
 		gem update rails
-		
-5) Download elastic search from https://www.elastic.co/downloads/elasticsearch (Press on the ZIP file link) 
+
+5) Download elastic search from https://www.elastic.co/downloads/elasticsearch (Press on the ZIP file link)
 
 Unzip it to any directory and switch to the bin folder.
 
 Run elasticsearch.bat as administrator
 
 If you get an error about JAVA_HOME then download the latest JDK and then follow this guide https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html
-		
-6) now cd into the fc folder and execute: 
+
+6) now cd into the fc folder and execute:
 
 		bundle install
 		rake searchkick:reindex CLASS=Course
 		rake db:migrate
 		rails server
 the server should start, go to localhost:3000 and you should see a welcome to rails page.  
-
-
-
-
-
-

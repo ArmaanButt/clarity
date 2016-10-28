@@ -36,8 +36,6 @@ gem 'acts_as_votable'
 #Chart engine
 gem "chartkick"
 
-gem 'sqlite3'
-
 # Use the latest functionality which hasn't been released as a new gem version yet
 # gem 'surveyor', git: "https://github.com/NUBIC/surveyor.git",
 #   :ref => "d4fe8df2586ba26126bac3c4b3498e67ba813baf"
@@ -66,6 +64,8 @@ end
 group :production do
   # Use mysql as the database for Active Record
   # gem 'mysql2', '>= 0.3.13', '< 0.5'
+  gem 'rails_12factor'
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
